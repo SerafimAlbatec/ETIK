@@ -1,0 +1,127 @@
+<div class="container con_home">
+  <div class="">
+
+        <%= link_to "Νέα παραγγελία", etic_new_user_path ,class: "btn btn-primary" %>
+
+      </div>
+  <div class="row row_admin">
+
+    <div class="admin_main">
+        <h1>Users</h1>
+        <% if (!@user.nil?) %>
+          <% @user.each do |user| %>
+          <!--Υπολογισμοι για καθε user
+            1. Ποσα κουφωματα εχει κανει
+            2. Την παραγγελια του
+            3. Με each το συνολο τησ παραγγελιας του
+          -->
+          <% num_of_window =  Order.where(:user_id => user.id).count %>
+          <% user_order =  Order.where(:user_id => user.id).all %>
+          <% sunolo = 0; %>
+          <% kouf = 0 %>
+            <% user_order.each do |i| %>
+            <% sunolo = sunolo + i.price_sum %>
+            <% kouf = kouf + i.posotoita %>
+         <% end %>
+         <!-- end υπολογισμων -->
+
+            <div class="admin_user" id="<%= user.id %>">
+              <div class="user_id" style="display:none;"><%= user.id %></div>
+              <b>Name:</b> <%= user.name %><br>
+              <b>SurName:</b> <%= user.epitheto %><br>
+              <b>Phone:</b> <%= user.phone %><br>
+              <b>Address 1:</b> <%= user.address1 %><br>
+              <% if (!user.address2.nil?) %>
+              <b>Address 2:</b> <%= user.address2 %><br>
+              <% end %>
+              <b>Company:</b> <%= user.company %><br>
+              <b>E-mail:</b> <%= user.email %><br>
+              <b>Number of windows:</b> <%= kouf %><br>
+              <b>Total Price:</b> <%= number_with_precision(sunolo, :precision => 2) %> €<br>
+              <%= link_to "Orders", etic_user_diax_path(:user => user.id, :istoriko => 1) ,class: "btn btn-info done" %>
+              <button type="button" class="btn btn-default card_user" id="<%= user.id %>">Card</button>
+              <%= link_to "Done", etic_pse_done_path(:pse_user => user.id, :done => 1, :pse => 0) ,class: "btn btn-success done" %>
+              <%= link_to "No Done", etic_pse_done_path(:pse_user => user.id, :done => 0,  :pse => 0) ,class: "btn btn-primary done" %>
+            </div>
+            <% if (user.done == 1) %>
+                <div class="hidden" id="<%= user.id %>"></div>
+              <% end %>
+          <% end %>
+        <% end %>
+      </div> 
+
+  </div>
+
+  <div class="row">
+    <h1>Pseudo Users</h1>
+    
+    <div class="admin_main">
+    <% if (!@pseudo.nil?) %>
+          <% @pseudo.each do |user| %>
+          <!--Υπολογισμοι για καθε user
+            1. Ποσα κουφωματα εχει κανει
+            2. Την παραγγελια του
+            3. Με each το συνολο τησ παραγγελιας του
+          -->
+          <% num_of_window =  Order.where(:user_id => user.id).where(:pse => 1).count %>
+          <% user_order =  Order.where(:user_id => user.id).where(:pse => 1).all %>
+          <% sunolo = 0; %>
+          <% kouf = 0 %>
+            <% user_order.each do |i| %>
+            <% sunolo = sunolo + i.price_sum %>
+            <% kouf = kouf + i.posotoita %>
+         <% end %>
+         <!-- end υπολογισμων -->
+
+            <div class="admin_pse_user" id="<%= user.id %>">
+              <div class="user_id" style="display:none;"><%= user.id %></div>
+              <b>Name:</b> <%= user.name %><br>
+              <b>Surname:</b> <%= user.eponimo %><br>
+              <b>Phone:</b> <%= user.phone %><br>
+              <b>Address:</b> <%= user.address %><br>
+              <b>Company:</b> <%= user.company %><br>
+              <b>Email:</b> <%= user.email %><br>
+              <b>Number of windows:</b> <%= kouf %><br>
+              <b>Total Price:</b> <%= number_with_precision(sunolo, :precision => 2) %> €<br>
+              <%= link_to "+", etic_pse_user_path(:pse_user => user.id) ,class: "btn btn-primary" %>
+              <button type="button" class="btn btn-default card" id="<%= user.id %>">Card</button>
+              <%= link_to "Done", etic_pse_done_path(:pse_user => user.id, :done => 1) ,class: "btn btn-success done" %>
+              <%= link_to "No Done", etic_pse_done_path(:pse_user => user.id, :done => 0) ,class: "btn btn-primary done" %>
+              <% if (user.done == 1) %>
+                <div class="hidden" id="<%= user.id %>"></div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+  </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+  a = $('.hidden');
+  a.each(function(){
+    b = $(this).attr('id');
+    //$("#"+b+"").css("background-color","#5cb85c");
+    $("#"+b+"").css("border-color","#5cb85c");
+    $("#"+b+"").css("border-width","5px");
+    //alert(b);
+  });
+
+  
+  $(".card_user").click(function(){
+    id = $(this).attr('id');
+    window.location.href = "<%= etic_etic_user_card_path %>?id="+id+""
+  });
+
+  $(".card").click(function(){
+    id = $(this).attr('id');
+    window.location.href = "<%= etic_etic_pse_user_card_path %>?id="+id+""
+  });
+
+
+}); //ready end
+</script>

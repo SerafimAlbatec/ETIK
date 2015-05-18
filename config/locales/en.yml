@@ -1,0 +1,161 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  ##hello: "Hello world"
+  mpara:
+    open_category: "OPEN CATEGORY"
+    material: "MATERIAL"
+    leaf: "LEAF"
+    open_type: "OPEN TYPE"
+    color: "COLOR"
+    dimension: "DIMENSIONS"
+    extra: "EXTRA"
+    price: "PRICE"
+    extra: "EXTRA"
+
+  home:
+    title: "OPEN CATEGORY"
+
+  #Γενικα αυτα που αλλαζουν απο την βάση!!!
+  kouf:
+    parathiro: "Window"
+    balkonoporta: "French door"
+    suromeno_an_parathiro: "Αγγλικα"
+    suromeno_par: "Αγγλικα"
+    porta: "Door"
+
+  fulla:
+    1fullo: "1 leaf"
+    2fullo: "2 leaf"
+    3fullo: "3 leaf"
+
+  #end
+
+
+  material:
+    title: "MATERIAL"
+    constructor: "CONSTRUCTOR"
+    system: "SYSTEM"
+    line: "SYSTEM"
+
+  leaf:
+    title: "LEAF"
+
+  open_type:
+    title: "OPEN TYPE"
+
+  color:
+    title: "COLOR"
+    pedio: "Choose sides"
+    mesa: "Inside color (outside white)"
+    ekso: "Outside color (inside white)"
+    mesa_ekso: "In Out"
+    epivarinsi: "Surcharge"
+    button_xwris: "Continue without extra color"
+    button_me_kassa: "Colour Frame"
+    button_me_fullo: "Sash Colour"
+    sunexia: "Continue"
+    deksia: "RIGHT"
+    aristera: "LEFT"
+    panw: "TOP"
+    katw: "BOTTOM"
+
+  diastaseis:
+    title: "DIMENSIONS"
+    color: "Color"
+    color_deksia: "Right Colour Frame"
+    color_aristera: "Left Colour Frame"
+    color_panw: "Top Colour Frame"
+    color_katw: "Bottom Colour Frame"
+    color_fullou: "Sash Colour"
+    platos: "WIDTH"
+    upsos: "HEIGHT"
+    min_pla: "Min width"
+    max_pla: "Max width"
+    min_ups: "Min Height"
+    max_ups: "Max height"
+    lastixo: "Black gasket"
+    ok: "OK"
+    swsto_width: "Right width"
+    swsto_height: "Right height"
+    lathos_width: "Wrong width"
+    lathos_height: "Wrong height"
+    add_card: "Add to Card"
+    extra: "Continue to extra"
+
+  extra:
+    title: "ETXRA"
+    rola: "ΡΟΛΑ"
+    epik_rolo: "ΕΠΙΚΑΘΗΜΕΝΑ ΡΟΛΑ"
+    color_epik: "ΧΡΩΜΑ ΕΠΙΚΑΘΗΜΕΝΩΝ"
+    color_epik_katw: "Χρώμα επικαθήμενου ρολού"
+    ekso_rolo: "ΕΞΩΤΕΡΙΚΑ ΡΟΛΑ"
+    color_ekso: "ΧΡΩΜΑ ΕΞΩΤΕΡΙΚΩΝ"
+    color_ekso_katw: "Χρώμα εξωτερικού ρολού"
+    glass_cat: "ΚΑΤΗΓΟΡΙΑ ΤΖΑΜΙΩΝ"
+    glass: "ΤΖΑΜΙΑ"
+    odoigoi: "ΟΔΟΙΓΟΙ ΡΟΛΟΥ"
+    odoigoi_color: "Χρώμα οδοιγού"
+    color_persidas: "Χρώμα περσίδας"
+    persides: "ΠΕΡΣΙΔΕΣ ΡΟΛΟΥ"
+    typos: "ΤΥΠΟΣ"
+    typos_color: "Χρώμα τύπου"
+    profil: "ΠΡΟΦΙΛ"
+    qua: "ποσό 1 μέχρι 3"
+    qua_pro: "PROFIL QUANTITY"
+    profil_panw: "PROFIL TOP"
+    profil_katw: "PROFIL BOTTOM"
+    profil_deksia: "PROFIL RIGHT"
+    profil_aristera: "PROFIL LEFT"
+
+
+  material_pinakas:
+    cat_anoigma: "Open category"
+    material: "Material"
+    cataskevastis: "Constructor"
+    systima: "System"
+    line: "Line"
+    leaf: "Leaf"
+    open_type: "Open type"
+    diastaseis: "Dimensions"
+    arxiki_timi: "Start price"
+    teliki_timi: "Final Price"
+    nees_diastaseis: "New dimensions"
+    epik: "Επικαθημενο ρολό"
+    ekso: "Εξωτερικό ρολό"
+    persida: "Περσίδα"
+    typos: "Τυπος"
+    profil: "Προφιλ"
+    odoigos: "Οδοιγος"
+    glass: "Τζαμι"
+    profil_panw: "Profil top"
+    profil_katw: "Profil bottom"
+    profil_deksia: "Profil right"
+    profil_aristera: "Profil left"
+
+  pdf:
+    phone: "Pho"
+    name: "Name"
+    sur_name: "Surname"
+    company: "Company"
+    address: "Address"
+    phone_big: "Phone"

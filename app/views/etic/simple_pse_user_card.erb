@@ -1,0 +1,241 @@
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-md-12">
+      <h1>Καλαθι Αγορών</h1>
+        <div class="table-responsive">
+          <div class="pdf" id="pdf">
+            <table class="table table_card table_grammata">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head">Eικόνα</th>
+                <th id="kartoula_head">Υλικό</th> 
+                <th id="kartoula_head">Κατασκευαστής</th>
+                <th id="kartoula_head">Σύστημα</th> 
+                <th id="kartoula_head">Σειρά</th>
+                <th id="kartoula_head">Φύλλα</th>
+                <th id="kartoula_head">Διαστάσεις</th>
+                <th id="kartoula_head">extra</th> 
+                <th id="kartoula_head">Ποσότητα</th> 
+                <th id="kartoula_head">Τιμή</th> 
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@items.nil?) %>
+              <% @items.each do |item| %>
+                <tr class="root">
+                  <td><%= image_tag(item.image, size: "50") %></td> 
+                  <td><%= item.material_id %></td>
+                  <td><%= item.constructor_id %></td>
+                  <td><%= item.system_id %></td>
+                  <td><%= item.line_id %></td>
+                  <td><%= Leaf.where(:id => item.leaf_id).first.name %></td>
+                  <td>Υψος: <%= item.height %>mm</br> Πλάτος: <%= item.width %>mm</br> <% if ( !item.xwrisma1.nil? ) %>
+                    Χώρισμα αριστερά: <%= item.xwrisma1 %>mm,<br> Χώρισμα δεξιά: <%= item.xwrisma2 %>mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma3_1.nil? ) %>
+                    Χώρισμα αριστερά: <%= item.xwrisma3_1 %>mm<br>
+                    Χώρισμα μέση: <%= item.xwrisma3_2 %>mm<br>
+                    Χώρισμα δεξιά: <%= item.xwrisma3_3 %>mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma_y_1.nil? ) %>
+                    Χώρισμα πάνω: <%= item.xwrisma_y_1 %>mm<br>
+                    Χώρισμα κάτω: <%= item.xwrisma_y_2 %>mm<br>
+                    <% end %></td>
+                  <!--extra-->
+                  <td class="card_extra_left">
+                    Tυπος:  <%= item.open_type_id %><br>
+                    Χρώμα:  <%= item.main_color_id %><br>
+                    <div class="on_off">
+                    <a class="show_more">Show more...</a>
+                    <div class="extra_show_hide">
+                    <% if ( !item.right_color_id.nil? ) %>
+                    Χρώμα δεξια: <%= item.right_color_id %><br>
+                    Χρώμα αριστέρα: <%= item.left_color_id %><br>
+                    Χρώμα πάνω: <%= item.up_color_id %><br>
+                    Χρώμα κάτω: <%= item.down_color_id %><br>
+                    <% end %>
+                    <% if ( !item.leaf_color_id.nil? ) %>
+                      Χρώμα φύλου: <%= item.leaf_color_id %><br>
+                    <% end %>
+                    <% if ( item.lastixo == 1 ) %>
+                      Μαύρο λάστιχο<br>
+                    <% end %>
+                    <% if ( !item.tzamia.nil? ) %>
+                      Τζάμι: <%= item.tzamia %><br>
+                    <% end %>
+                    <% if ( !item.rolo.nil? ) %>
+                      Ρολό: <%= item.rolo %><br>
+                      Χρώμα ρολού: <%= item.color_rolou %><br>
+                    <% end %>
+                    <% if ( !item.odoigos.nil? ) %>
+                      Οδοιγός: <%= item.odoigos %><br>
+                      Χρώμα οδοιγού: <%= item.color_odoigou %><br>
+                    <% end %>
+                    <% if ( !item.persida.nil? ) %>
+                      Περσίδα: <%= item.persida %><br>
+                      Χρώμα περσίδας: <%= item.color_persidas %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? ) %>
+                      Προφιλ δεξιά: <%= item.profil_deksia_1 %><br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_2.nil? ) %>
+                      Προφιλ δεξιά: <%= item.profil_deksia_2 %><br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_3.nil? ) %>
+                      Προφιλ δεξιά: <%= item.profil_deksia_3 %><br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? || !item.profil_deksia_2.nil? || !item.profil_deksia_3.nil? ) %>
+                      Χρώμα προφιλ δεξια: <%= item.color_profil_d %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? ) %>
+                      Προφιλ αριστερά: <%= item.profil_aristera_1 %><br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_2.nil? ) %>
+                      Προφιλ αριστερά: <%= item.profil_aristera_2 %><br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_3.nil? ) %>
+                      Προφιλ αριστερά: <%= item.profil_aristera_3 %><br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? || !item.profil_aristera_2.nil? || !item.profil_aristera_3.nil? ) %>
+                      Χρώμα προφιλ αριστερά: <%= item.color_profil_a %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? ) %>
+                      Προφιλ πάνω: <%= item.profil_panw_1 %><br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_2.nil? ) %>
+                      Προφιλ πάνω: <%= item.profil_panw_2 %><br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_3.nil? ) %>
+                      Προφιλ πάνω: <%= item.profil_panw_3 %><br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? || !item.profil_panw_2.nil? || !item.profil_panw_3.nil? ) %>
+                      Χρώμα προφιλ πάνω: <%= item.color_profil_p %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? ) %>
+                      Προφιλ κάτω: <%= item.profil_katw_1 %><br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_2.nil? ) %>
+                      Προφιλ κάτω: <%= item.profil_katw_2 %><br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_3.nil? ) %>
+                      Προφιλ κάτω: <%= item.profil_katw_3 %><br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? || !item.profil_katw_2.nil? || !item.profil_katw_3.nil? ) %>
+                      Χρώμα προφιλ κάτω: <%= item.color_profil_k %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? ) %>
+                      Τύπος κάτω: <%= item.typos_katw_1 %><br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_2.nil? ) %>
+                      Τύπος κάτω: <%= item.typos_katw_2 %><br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_3.nil? ) %>
+                      Τύπος κάτω: <%= item.typos_katw_3 %><br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? || !item.typos_katw_2.nil? || !item.typos_katw_3.nil? ) %>
+                      Χρώμα τύπου κάτω: <%= item.color_profil_k %><br>
+                    <% end %>
+                    
+                    </div>
+                    <a class="show_less">Show less...</a>
+                    </div>
+                  </td>
+                  <td><input class="input" type="text" name="lname" size="5" placeholder="<%= item.posotoita %>" id="<%= item.id %>"></td>
+                  <td id="price" class="price"><%= number_with_precision(item.price_sum, :precision => 2) %> €</td>
+                  <% if @done != 1 %>
+                  <td><%= link_to 'Destroy', etic_destroy_path(:id => item.id), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs'%><br>
+                  <% if @admin != "1" %>
+                  <%= link_to " Επανάληψη", etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:name => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id), class: "btn btn-warning"%>
+                  <% end %>
+                </td>
+                <% end %><!--End tou if gia user done-->
+                </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+      
+            <label id="sunolo"><b>Συνολο παραγγελίας:</b> </label><label id="timi_sunolou"> <%= number_with_precision(@sunolo, :precision => 2) %> €</label></br>
+       </div><!--end canvas gia pdf-->
+     </div>
+            <% if (@number > 0) %>
+            <% if @done != 1 %>
+            <button type="button" class="btn btn-default update">Update</button>
+            
+            <%= link_to "Ολοκλήρωση παραγγελίας" ,etic_oloklirwsi_simple_user_pses_path(:id => @paraggelia_id) , data: { confirm: 'Are you sure? If you press OK, this order will be send for preparation!!' }, class: "btn btn-primary oloklirwsi"%>
+
+            <%= link_to " Διαγραφή παραγγελίας", etic_diagrafi_simple_user_path(:id => @paraggelia_id), class: "btn btn-primary diagrafi"%>
+            <% end %><!--end done 1-->
+            <%= link_to "Show PDF" ,etic_pdf_simple_user_path(:id => @paraggelia_id,:pse => 1,:format => 'pdf') , class: "btn btn-primary pdf", :target => "_blank"%>
+            <%= link_to "Download_xls", etic_export_simple_user_path(:id => @user_id,:pse => 1,:format => "xls") ,class: "btn btn-primary", :target => "_blank" %>
+            <%= link_to "Download_csv", etic_export_simple_user_path(:id => @user_id,:pse => 1,:format => "csv") ,class: "btn btn-primary", :target => "_blank" %>
+            <%= link_to "Download_xml", etic_export_simple_user_path(:id => @user,:pse => 1,:format => "xml") ,class: "btn btn-primary", :target => "_blank" %>
+            <% end %>
+  	</div>
+  </div>
+</div>
+
+<script>
+
+
+$(document).ready(function(){
+
+  $(".extra_show_hide").hide();
+  $(".show_less").hide();
+
+  $(".show_more").click(function(){
+    $(this).next().toggle();
+    $(this).hide();
+    $(this).next().next().show();
+  });
+
+  $(".show_less").click(function(){
+    $(this).prev().toggle();
+    $(this).prev().prev().show();
+    $(this).hide();
+  });
+
+  $(".update").click(function(){
+    $("input").each(function(){ //Για καθε input κανω τo update
+      if ( $(this).val().length ) { //ελεγχω αν εχει αλλαξει το value και δεν υπαρχει μονο placeholder
+        //alert($(this).attr('id'));
+        $.ajax({
+            type:'GET',
+            url:'/etic/update_admin',
+            dataType: "json",
+            data: { amount: $(this).val(), id: $(this).attr('id')},
+            success: function(data) { 
+              },
+            error: function(data) { 
+              }
+          }); //ajax end
+          } //end if
+     }); //each end
+    location.reload();
+  });//update end
+
+
+
+}); //ready end
+
+
+
+</script>

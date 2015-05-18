@@ -1,0 +1,160 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+gr:
+  ##hello: "Hello world"
+  mpara:
+    open_category: "ΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+    material: "ΥΛΙΚΟ"
+    leaf: "ΕΙΔΟΣ ΑΝΟΙΓΜΑΤΟΣ"
+    open_type: "ΥΠΟΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+    color: "ΧΡΩΜΑ"
+    dimension: "ΔΙΑΣΤΑΣΕΙΣ"
+    extra: "EXTRA"
+    price: "ΤΙΜΗ" 
+    extra: "EXTRA"
+
+  home:
+    title: "ΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+
+  #Γενικα αυτα που αλλαζουν απο την βάση!!!
+  kouf:
+    parathiro: "Παράθυρο"
+    balkonoporta: "Μπαλκονόπορτα"
+    suromeno_an_parathiro: "Συρόμενο ανοιγόμενο παράθυρο"
+    suromeno_par: "Συρόμενο παράθυρο"
+    porta: "Πόρτα"
+
+  fulla:
+    1fullo: "1 φύλλο"
+    2fullo: "2 φύλλα"
+    3fullo: "3 φύλλα"
+
+  #end  
+
+  material:
+    title: "ΥΛΙΚΟ"
+    constructor: "ΚΑΤΑΣΚΕΥΑΣΤΗΣ"
+    system: "ΣΥΣΤΗΜΑ"
+    line: "ΣΥΣΤΗΜΑ"
+
+  leaf:
+    title: "ΕΙΔΟΣ ΑΝΟΙΓΜΑΤΟΣ"
+
+  open_type:
+    title: "ΥΠΟΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+
+  color:
+    title: "ΧΡΩΜΑ"
+    pedio: "Επιλογη πλευράς"
+    mesa: "Μέσα πλευρά (έξω πλευρά άσπρο χρώμα)"
+    ekso: "Έξω πλευρά (μέσα πλευρά άσπρο χρώμα)"
+    mesa_ekso: "Μέσα έξω"
+    epivarinsi: "Επιβάρυνση"
+    button_xwris: "Συνέχεια χωρίς επιλογή χρωμάτων κάσας ή φύλλου"
+    button_me_kassa: "Επιλογή χρώμα κάσας"
+    button_me_fullo: "Επιλογή χρώμα φύλλου"
+    sunexia: "Συνέχεια"
+    deksia: "ΔΕΞΙΑ"
+    aristera: "ΑΡΙΣΤΕΡΑ"
+    panw: "ΠΑΝΩ"
+    katw: "ΚΑΤΩ"
+
+  diastaseis:
+    title: "ΔΙΑΣΤΑΣΕΙΣ"
+    color: "Χρώμα"
+    color_deksia: "Χρώμα δεξιά"
+    color_aristera: "Χρώμα αριστερά"
+    color_panw: "Χρώμα πάνω"
+    color_katw: "Χρώμα κάτω"
+    color_fullou: "Χρώμα φύλου"
+    platos: "ΠΛΑΤΟΣ"
+    upsos: "ΥΨΟΣ"
+    min_pla: "Ελάχιστο πλάτος"
+    max_pla: "Μέγιστο πλάτος"
+    min_ups: "Ελάχιστο ύψος"
+    max_ups: "Μέγιστο ύψος"
+    lastixo: "Μαύρο λάστιχο"
+    ok: "Υποβολή διαστάσεων"
+    swsto_width: "Σωστό μίκος"
+    swsto_height: "Σωστό ύψος"
+    lathos_width: "Λάθος μίκος"
+    lathos_height: "Λάθος ύψος"
+    add_card: "Προσθήκη στο καλάθι"
+    extra: "Συνέχεια στα extra"
+
+  extra:
+    title: "ETXRA"
+    rola: "ΡΟΛΑ"
+    epik_rolo: "ΕΠΙΚΑΘΗΜΕΝΑ ΡΟΛΑ"
+    color_epik: "ΧΡΩΜΑ ΕΠΙΚΑΘΗΜΕΝΩΝ"
+    color_epik_katw: "Χρώμα επικαθήμενου ρολού"
+    ekso_rolo: "ΕΞΩΤΕΡΙΚΑ ΡΟΛΑ"
+    color_ekso: "ΧΡΩΜΑ ΕΞΩΤΕΡΙΚΩΝ"
+    color_ekso_katw: "Χρώμα εξωτερικού ρολού"
+    glass_cat: "ΚΑΤΗΓΟΡΙΑ ΤΖΑΜΙΩΝ"
+    glass: "ΤΖΑΜΙΑ"
+    odoigoi: "ΟΔΟΙΓΟΙ ΡΟΛΟΥ"
+    odoigoi_color: "Χρώμα οδοιγού"
+    color_persidas: "Χρώμα περσίδας"
+    persides: "ΠΕΡΣΙΔΕΣ ΡΟΛΟΥ"
+    typos: "ΤΥΠΟΣ"
+    typos_color: "Χρώμα τύπου"
+    profil: "ΠΡΟΦΙΛ"
+    qua: "ποσό 1 μέχρι 3"
+    qua_pro: "ΠΟΣΟΤΗΤΑ ΠΡΟΦΙΛ"
+    profil_panw: "ΠΡΟΦΙΛ ΠΑΝΩ"
+    profil_katw: "ΠΡΟΦΙΛ ΚΑΤΩ"
+    profil_deksia: "ΠΡΟΦΙΛ ΔΕΞΙΑ"
+    profil_aristera: "ΠΡΟΦΙΛ ΑΡΙΣΤΕΡΑ"
+
+
+  material_pinakas:
+    cat_anoigma: "Κατηγορία ανοίγματος"
+    material: "Υλικό"
+    cataskevastis: "Κατασκευαστής"
+    systima: "Σύστημα"
+    line: "Γραμμή"
+    leaf: "Φύλλα"
+    open_type: "Υποκατηγορία ανοίγματος"
+    diastaseis: "Διαστάσεις"
+    arxiki_timi: "Αρχική τιμή"
+    teliki_timi: "Τελική τιμή"
+    nees_diastaseis: "Νέες διαστασεις"
+    epik: "Επικαθημενο ρολό"
+    ekso: "Εξωτερικό ρολό"
+    persida: "Περσίδα"
+    typos: "Τυπος"
+    profil: "Προφιλ"
+    odoigos: "Οδοιγος"
+    glass: "Τζαμι"
+    profil_panw: "Προφιλ πάνω"
+    profil_katw: "Προφιλ κάτω"
+    profil_deksia: "Προφιλ δεξιά"
+    profil_aristera: "Προφιλ αριστερά"
+
+  pdf:
+    phone: "Τηλ"
+    name: "Ονομα"
+    sur_name: "Επώνυμο"
+    company: "Εταιρεία"
+    address: "Διεύθυνση"
+    phone_big: "Τηλέφωνο"

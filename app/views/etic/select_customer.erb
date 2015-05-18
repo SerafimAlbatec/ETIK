@@ -1,0 +1,34 @@
+<div class="container con_home">
+  
+  <div class="row">
+    <h1>Select customer</h1>
+
+      <hr>
+
+    <div>
+      <select id="cust">
+        <% @customers.each do |c| %>
+        <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>, <%= c.company %>  </option>
+        <% end %>
+      </select>
+    </div>
+
+    </br>
+
+    <button class="btn btn-primary ok">Continue</button>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  $(".container").on("click", ".ok", function() {
+    
+    ti_epeleksa_option = $('#cust').find(":selected").val();
+
+    window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option;
+
+
+  });//end ok
+
+</script>
