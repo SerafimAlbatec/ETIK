@@ -45,7 +45,7 @@ class EticController < ApplicationController
     ## Κραταει το id του pseudo user που πατησα + σε καθοληκή μεταβλητή $pseUserId  
 	def pse_user
 		$pseUserId = params[:pse_user]
-		redirect_to etic_home_path
+		redirect_to etic_home_path 
 	end
 
 	def simple_pse_user
@@ -1059,9 +1059,9 @@ class EticController < ApplicationController
 		      @order.user_id = current_user.id
 		      @order.pse = 0
 		    end
-		    last = Order.order("created_at").last
-		    id_canvas = last.id + 1
-		    @order.canvas = id_canvas
+		    #last = Order.order("created_at").last
+		    #id_canvas = last.id + 1
+		    @order.canvas = $id_canvas
 		    @order.save 
 		    #@order.canvas = @order.id
 		end
@@ -1325,8 +1325,8 @@ class EticController < ApplicationController
 
 	def save_image
 		last = Order.order("created_at").last
-		id = last.id + 1
-		File.open("#{Rails.root}/public/upload/#{id}.png", 'wb') do |f|
+		$id_canvas = last.id + 1
+		File.open("#{Rails.root}/public/upload/#{$id_canvas}.png", 'wb') do |f|
           f.write(params[:image].read)
         end
 	end
@@ -1462,7 +1462,7 @@ class EticController < ApplicationController
     	#@customers = SimpleUserPse.where(:user_id => user.id)
     	@customers = SimpleUserPse.where(:dealer_num => user.sungate_code)
 
-    	@paraggelies = Paraggelia.where(:user => current_user.id)
+    	@paraggelies = Paraggelia.where(:user => current_user.id, :done => 0)
 
     	sunolo = 0
 
@@ -1480,38 +1480,97 @@ class EticController < ApplicationController
 
        
     	if( !params[:customer].nil? )
-            @paraggelies = Paraggelia.where(:customer => params[:customer]).order("created_at").reverse
+            @paraggelies = Paraggelia.where(:customer => params[:customer], :done => 0).order("created_at").reverse
     	end
     	if( params[:customer] == "0" )
-            @paraggelies = Paraggelia.where(:user => current_user.id)
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0)
     	end
 
     
     	if(params[:order] == "price_low")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("sum")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("sum")
     	end
     	if(params[:order] == "price_high")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("sum").reverse
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("sum").reverse
     	end
     	if(params[:order] == "code_low")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("id")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("id")
     	end
     	if(params[:order] == "code_high")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("id").reverse
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("id").reverse
     	end
     	if(params[:order] == "date_old")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("created_at")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("created_at")
     	end
     	if(params[:order] == "date_new")
-            @paraggelies = Paraggelia.where(:user => current_user.id).order("created_at").reverse
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("created_at").reverse
     	end
     	if(params[:order] == "name_a")
-    		@paraggelies = Paraggelia.where(:user => current_user.id).order("eponimo")
+    		@paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("eponimo")
     	end
     	if(params[:order] == "name_z")
-    		@paraggelies = Paraggelia.where(:user => current_user.id).order("eponimo").reverse
+    		@paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("eponimo").reverse
     	end
  
+    end
+
+    def history
+    	@admin = current_user.admin
+    	##########
+
+    	user = User.where(:id => current_user.id).first
+    	#@customers = SimpleUserPse.where(:user_id => user.id)
+    	@customers = SimpleUserPse.where(:dealer_num => user.sungate_code)
+
+    	@paraggelies = Paraggelia.where(:user => current_user.id, :done => 1)
+
+    	sunolo = 0
+
+        paraggelies_order = Paraggelia.all
+            
+        paraggelies_order.each do |i| 
+        	offer = Order.where(:paraggelia_id => i.id).all
+        	offer.each do |o| 
+                sunolo = sunolo + o.price_sum 
+            end
+            i.sum = sunolo
+            i.save
+            sunolo = 0
+        end 
+
+       
+    	if( !params[:customer].nil? )
+            @paraggelies = Paraggelia.where(:customer => params[:customer], :done => 1).order("created_at").reverse
+    	end
+    	if( params[:customer] == "0" )
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1)
+    	end
+
+    
+    	if(params[:order] == "price_low")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("sum")
+    	end
+    	if(params[:order] == "price_high")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("sum").reverse
+    	end
+    	if(params[:order] == "code_low")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("id")
+    	end
+    	if(params[:order] == "code_high")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("id").reverse
+    	end
+    	if(params[:order] == "date_old")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("created_at")
+    	end
+    	if(params[:order] == "date_new")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("created_at").reverse
+    	end
+    	if(params[:order] == "name_a")
+    		@paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("eponimo")
+    	end
+    	if(params[:order] == "name_z")
+    		@paraggelies = Paraggelia.where(:user => current_user.id, :done => 1).order("eponimo").reverse
+    	end
     end
 
 
@@ -1531,6 +1590,7 @@ class EticController < ApplicationController
     	offer.customer = params[:customer_id]
     	eponimo_customer = SimpleUserPse.where(:id => params[:customer_id]).first
     	offer.eponimo = eponimo_customer.name
+    	offer.done = 0
     	offer.save
     	redirect_to etic_simple_pse_user_path(:paraggelia_id => offer.id)
     end
@@ -1567,6 +1627,7 @@ class EticController < ApplicationController
         #  end 
         #@done = @user.done
         #@admin = params[:admin]
+        @done = Paraggelia.where(:id => params[:id]).first.done
         @user = SimpleUserPse.where(:id => 1).first
 		@paraggelia_id = params[:id]
             @items =  Order.where(:paraggelia_id => params[:id]) 

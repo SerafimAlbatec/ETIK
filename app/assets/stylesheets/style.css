@@ -89,6 +89,15 @@ hr {
   height: 2px;
 }
 
+.hr_card {
+    background-color: black;
+    border-color: black;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-width: 0.5px;
+}
+
 p {
   display: inline-block;
 }

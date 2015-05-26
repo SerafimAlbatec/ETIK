@@ -41,7 +41,8 @@
          <% if current_user.admin == 1 %> <!--Mesa giati vgazei error-->
            <li><a href="<%= etic_etic_card_path %>">Admin panel</a>
          <% else %>
-           <li><a href="<%= etic_user_diax_path %>">Orders</a></li>
+           <li><a href="<%= etic_user_diax_path %>">Offers</a></li>
+           <li><a href="<%= etic_history_path %>">History</a></li>
          <% end %>
          <% end %>
          <% if user_signed_in? %>
