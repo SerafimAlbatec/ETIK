@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: rails
   password: 'kq0gzxqzvR'
-  database: survey
+  database: etic
   host: localhost
 
 development:
