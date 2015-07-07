@@ -21,7 +21,10 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <% if current_user.admin === nil %>
-            <li><a href="<%= etic_home_path %>?pse_user=0">Application <span class="sr-only">(current)</span></a></li>
+            <% if false %><!---->
+            <li><a href="<%= etic_home_path %>?pse_user=0">Application <span class="sr-only">(current)</span></a>
+            </li>
+            <% end %><!---->
           <% end %>
         <% end %>
         <li><a href="<%= etic_contact_path %>">Contact</a></li>
@@ -37,19 +40,22 @@
          <% if user_signed_in? %>
          <% if current_user.admin == 1 %> <!--Mesa giati vgazei error-->
            <li><a href="<%= etic_etic_card_path %>">Admin panel</a>
+           <li><a href="<%= etic_history_admin_path %>">History</a></li>
          <% else %>
-           <li><a href="<%= etic_card_path %>">Card: <%= Order.where(:user_id => current_user.id).count %></a></li>
+           <li><a href="<%= etic_user_diax_path %>">Offers</a></li>
+           <li><a href="<%= etic_history_path %>">History</a></li>
          <% end %>
          <% end %>
          <% if user_signed_in? %>
           <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> 
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-          <!-- <li><strong><%= current_user.email %></strong>.<li> -->
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
           <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
         <% end %>
       </ul>
+      </br></br>
+        <p class="katw_mpara">Hello <strong><%= current_user.name %> </strong> </p>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

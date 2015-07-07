@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512073051) do
+ActiveRecord::Schema.define(version: 20150618085907) do
 
   create_table "cat_tzamia", force: true do |t|
     t.text     "name"
@@ -27,8 +27,11 @@ ActiveRecord::Schema.define(version: 20150512073051) do
     t.datetime "updated_at"
     t.string   "code"
     t.integer  "katigoria"
-    t.float    "mia_pleura", limit: 24
-    t.float    "duo_pleura", limit: 24
+    t.float    "mia_pleura",   limit: 24
+    t.float    "duo_pleura",   limit: 24
+    t.text     "sungate_in"
+    t.text     "sungate_out"
+    t.text     "sungate_both"
   end
 
   create_table "constructors", force: true do |t|
@@ -67,12 +70,14 @@ ActiveRecord::Schema.define(version: 20150512073051) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "epivarinsi_line",    limit: 24
-    t.float    "epivarinsi_lastixo", limit: 24
+    t.float    "epivarinsi_line",     limit: 24
+    t.float    "epivarinsi_lastixo",  limit: 24
     t.text     "koimeno"
     t.text     "name_allo"
     t.integer  "yes"
     t.text     "direct_img"
+    t.text     "sungate_description"
+    t.text     "sungate_code"
   end
 
   create_table "material_constructors", force: true do |t|
@@ -333,6 +338,7 @@ ActiveRecord::Schema.define(version: 20150512073051) do
     t.text     "fax"
     t.integer  "VAT"
     t.text     "dealer_num"
+    t.text     "sungate_num"
   end
 
   create_table "system_lines", force: true do |t|

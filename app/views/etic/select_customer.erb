@@ -3,15 +3,22 @@
   <div class="row">
     <h1>Select customer</h1>
 
+    <%= form_tag etic_select_customer_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "all", :name => "all" %>
+      </p>
+    <% end %>
+
       <hr>
 
-    <div>
-      <select id="cust">
-        <% @customers.each do |c| %>
-        <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>, <%= c.company %>  </option>
-        <% end %>
-      </select>
-    </div>
+
+    <select class="select" id="cust" multiple="multiple" size="10">
+      <% @customers.each do |c| %>
+      <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>  </option>
+      <% end %>
+    </select>
 
     </br>
 

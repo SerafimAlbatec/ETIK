@@ -4050,3 +4050,520 @@ ActionController::RoutingError (No route matches [GET] "/images/firefox.png"):
   /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
 
+I, [2015-05-27T09:47:58.872856 #758]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-05-27 09:47:58 +0300
+I, [2015-05-27T09:47:58.898582 #758]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-05-27T09:47:58.986567 #758]  INFO -- :   Rendered devise/shared/_links.erb (2.2ms)
+I, [2015-05-27T09:47:58.986697 #758]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (10.7ms)
+I, [2015-05-27T09:47:58.991231 #758]  INFO -- :   Rendered devise/sessions/_header.html.erb (2.7ms)
+I, [2015-05-27T09:47:58.992455 #758]  INFO -- :   Rendered devise/sessions/_footer.html.erb (0.3ms)
+I, [2015-05-27T09:47:58.993034 #758]  INFO -- : Completed 200 OK in 94ms (Views: 21.5ms | ActiveRecord: 2.5ms)
+I, [2015-05-27T09:47:59.044213 #758]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-05-27 09:47:59 +0300
+I, [2015-05-27T09:47:59.045899 #758]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-05-27T09:47:59.051278 #758]  INFO -- :   Rendered devise/shared/_links.erb (0.5ms)
+I, [2015-05-27T09:47:59.051384 #758]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (3.2ms)
+I, [2015-05-27T09:47:59.052711 #758]  INFO -- :   Rendered devise/sessions/_header.html.erb (0.9ms)
+I, [2015-05-27T09:47:59.052854 #758]  INFO -- :   Rendered devise/sessions/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:47:59.053160 #758]  INFO -- : Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+I, [2015-05-27T09:47:59.106410 #758]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:47:59 +0300
+F, [2015-05-27T09:47:59.108239 #758] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:47:59.173158 #758]  INFO -- : Started GET "/images/chrome.png" for 127.0.0.1 at 2015-05-27 09:47:59 +0300
+F, [2015-05-27T09:47:59.175450 #758] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/chrome.png"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:47:59.185963 #758]  INFO -- : Started GET "/images/firefox.png" for 127.0.0.1 at 2015-05-27 09:47:59 +0300
+F, [2015-05-27T09:47:59.187064 #758] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/firefox.png"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:48:06.472599 #758]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-27 09:48:06 +0300
+I, [2015-05-27T09:48:06.474947 #758]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2015-05-27T09:48:06.475067 #758]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"6oVvYUO63ei+rOK4bjOH9pEFwNj0zPda7owC+/+imDk=", "user"=>{"email"=>"b@b.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+I, [2015-05-27T09:48:06.594892 #758]  INFO -- : Redirected to http://localhost:3000/etic/user_diax
+I, [2015-05-27T09:48:06.595143 #758]  INFO -- : Completed 302 Found in 120ms (ActiveRecord: 9.8ms)
+I, [2015-05-27T09:48:06.601682 #758]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 09:48:06 +0300
+I, [2015-05-27T09:48:06.604731 #758]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T09:48:06.885695 #758]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (96.1ms)
+I, [2015-05-27T09:48:06.889362 #758]  INFO -- :   Rendered etic/_header.html.erb (2.0ms)
+I, [2015-05-27T09:48:06.890670 #758]  INFO -- :   Rendered etic/_footer.html.erb (0.4ms)
+I, [2015-05-27T09:48:06.891320 #758]  INFO -- : Completed 200 OK in 286ms (Views: 96.9ms | ActiveRecord: 41.0ms)
+I, [2015-05-27T09:48:06.931930 #758]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:48:06 +0300
+F, [2015-05-27T09:48:06.934009 #758] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:49:31.044810 #773]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 09:49:31 +0300
+I, [2015-05-27T09:49:31.073759 #773]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T09:49:31.406955 #773]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (40.9ms)
+I, [2015-05-27T09:49:31.411129 #773]  INFO -- :   Rendered etic/_header.html.erb (2.1ms)
+I, [2015-05-27T09:49:31.412974 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.6ms)
+I, [2015-05-27T09:49:31.413983 #773]  INFO -- : Completed 200 OK in 340ms (Views: 43.2ms | ActiveRecord: 84.1ms)
+I, [2015-05-27T09:49:31.479566 #773]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:49:31 +0300
+F, [2015-05-27T09:49:31.481399 #773] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:49:39.639033 #773]  INFO -- : Started GET "/etic/history" for 127.0.0.1 at 2015-05-27 09:49:39 +0300
+I, [2015-05-27T09:49:39.640633 #773]  INFO -- : Processing by EticController#history as HTML
+I, [2015-05-27T09:49:39.703480 #773]  INFO -- :   Rendered etic/history.html.erb within layouts/application (21.8ms)
+I, [2015-05-27T09:49:39.706617 #773]  INFO -- :   Rendered etic/_header.html.erb (1.8ms)
+I, [2015-05-27T09:49:39.707650 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.3ms)
+I, [2015-05-27T09:49:39.708134 #773]  INFO -- : Completed 200 OK in 67ms (Views: 25.0ms | ActiveRecord: 21.3ms)
+I, [2015-05-27T09:49:41.172681 #773]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 09:49:41 +0300
+I, [2015-05-27T09:49:41.173895 #773]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T09:49:41.236658 #773]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (23.0ms)
+I, [2015-05-27T09:49:41.238219 #773]  INFO -- :   Rendered etic/_header.html.erb (0.8ms)
+I, [2015-05-27T09:49:41.238387 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:49:41.238810 #773]  INFO -- : Completed 200 OK in 65ms (Views: 22.7ms | ActiveRecord: 20.8ms)
+I, [2015-05-27T09:49:42.668707 #773]  INFO -- : Started GET "/etic/simple_pse_user_card?id=26&admin=" for 127.0.0.1 at 2015-05-27 09:49:42 +0300
+I, [2015-05-27T09:49:42.670630 #773]  INFO -- : Processing by EticController#simple_pse_user_card as HTML
+I, [2015-05-27T09:49:42.670697 #773]  INFO -- :   Parameters: {"id"=>"26", "admin"=>""}
+I, [2015-05-27T09:49:42.794512 #773]  INFO -- :   Rendered etic/simple_pse_user_card.erb within layouts/application (115.2ms)
+I, [2015-05-27T09:49:42.795883 #773]  INFO -- :   Rendered etic/_header.html.erb (0.8ms)
+I, [2015-05-27T09:49:42.796180 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.1ms)
+I, [2015-05-27T09:49:42.796907 #773]  INFO -- : Completed 200 OK in 126ms (Views: 110.7ms | ActiveRecord: 10.4ms)
+I, [2015-05-27T09:49:42.854089 #773]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:49:42 +0300
+F, [2015-05-27T09:49:42.855283 #773] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:49:56.174371 #773]  INFO -- : Started GET "/etic/update_admin?amount=2&id=227" for 127.0.0.1 at 2015-05-27 09:49:56 +0300
+I, [2015-05-27T09:49:56.184096 #773]  INFO -- : Processing by EticController#update_admin as JSON
+I, [2015-05-27T09:49:56.184198 #773]  INFO -- :   Parameters: {"amount"=>"2", "id"=>"227"}
+I, [2015-05-27T09:49:56.205252 #773]  INFO -- : Completed 500 Internal Server Error in 21ms
+F, [2015-05-27T09:49:56.207807 #773] FATAL -- : 
+ActionView::MissingTemplate (Missing template etic/update_admin, application/update_admin with {:locale=>[:de], :formats=>[:json, :js, :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :xls], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :prawn, :coffee, :jbuilder]}. Searched in:
+  * "/Users/serafimntavranis/Desktop/ETIK_PRO/app/views"
+  * "/Library/Ruby/Gems/2.0.0/gems/devise-3.3.0/app/views"
+):
+  actionview (4.1.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.6) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:49:56.208809 #773]  INFO -- : Started GET "/etic/simple_pse_user_card?id=26&admin=" for 127.0.0.1 at 2015-05-27 09:49:56 +0300
+I, [2015-05-27T09:49:56.210343 #773]  INFO -- : Processing by EticController#simple_pse_user_card as HTML
+I, [2015-05-27T09:49:56.210438 #773]  INFO -- :   Parameters: {"id"=>"26", "admin"=>""}
+I, [2015-05-27T09:49:56.249279 #773]  INFO -- :   Rendered etic/simple_pse_user_card.erb within layouts/application (31.8ms)
+I, [2015-05-27T09:49:56.251036 #773]  INFO -- :   Rendered etic/_header.html.erb (1.0ms)
+I, [2015-05-27T09:49:56.251246 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:49:56.251792 #773]  INFO -- : Completed 200 OK in 41ms (Views: 32.5ms | ActiveRecord: 4.1ms)
+I, [2015-05-27T09:49:56.348148 #773]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:49:56 +0300
+F, [2015-05-27T09:49:56.351309 #773] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:50:10.063127 #773]  INFO -- : Started GET "/etic/simple_pse_user_card?id=26&admin=" for 127.0.0.1 at 2015-05-27 09:50:10 +0300
+I, [2015-05-27T09:50:10.065109 #773]  INFO -- : Processing by EticController#simple_pse_user_card as HTML
+I, [2015-05-27T09:50:10.065456 #773]  INFO -- :   Parameters: {"id"=>"26", "admin"=>""}
+I, [2015-05-27T09:50:10.104666 #773]  INFO -- :   Rendered etic/simple_pse_user_card.erb within layouts/application (30.7ms)
+I, [2015-05-27T09:50:10.106061 #773]  INFO -- :   Rendered etic/_header.html.erb (0.8ms)
+I, [2015-05-27T09:50:10.106227 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:50:10.106598 #773]  INFO -- : Completed 200 OK in 41ms (Views: 30.8ms | ActiveRecord: 4.4ms)
+I, [2015-05-27T09:50:10.162035 #773]  INFO -- : Started GET "/assets/canvasutilities.js" for 127.0.0.1 at 2015-05-27 09:50:10 +0300
+F, [2015-05-27T09:50:10.165818 #773] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/canvasutilities.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/deflater.rb:25:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2015-05-27T09:50:17.220648 #773]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 09:50:17 +0300
+I, [2015-05-27T09:50:17.221661 #773]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T09:50:17.293029 #773]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (19.8ms)
+I, [2015-05-27T09:50:17.294413 #773]  INFO -- :   Rendered etic/_header.html.erb (0.8ms)
+I, [2015-05-27T09:50:17.294561 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:50:17.294889 #773]  INFO -- : Completed 200 OK in 73ms (Views: 18.7ms | ActiveRecord: 31.9ms)
+I, [2015-05-27T09:50:18.696632 #773]  INFO -- : Started GET "/etic/history" for 127.0.0.1 at 2015-05-27 09:50:18 +0300
+I, [2015-05-27T09:50:18.697699 #773]  INFO -- : Processing by EticController#history as HTML
+I, [2015-05-27T09:50:18.825154 #773]  INFO -- :   Rendered etic/history.html.erb within layouts/application (76.8ms)
+I, [2015-05-27T09:50:18.826801 #773]  INFO -- :   Rendered etic/_header.html.erb (0.9ms)
+I, [2015-05-27T09:50:18.826961 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:50:18.827374 #773]  INFO -- : Completed 200 OK in 130ms (Views: 76.0ms | ActiveRecord: 30.8ms)
+I, [2015-05-27T09:50:22.316465 #773]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 09:50:22 +0300
+I, [2015-05-27T09:50:22.317987 #773]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T09:50:22.393069 #773]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (23.5ms)
+I, [2015-05-27T09:50:22.394659 #773]  INFO -- :   Rendered etic/_header.html.erb (0.9ms)
+I, [2015-05-27T09:50:22.394845 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:50:22.395255 #773]  INFO -- : Completed 200 OK in 77ms (Views: 21.8ms | ActiveRecord: 30.9ms)
+I, [2015-05-27T09:50:23.256444 #773]  INFO -- : Started GET "/etic/history" for 127.0.0.1 at 2015-05-27 09:50:23 +0300
+I, [2015-05-27T09:50:23.257623 #773]  INFO -- : Processing by EticController#history as HTML
+I, [2015-05-27T09:50:23.327151 #773]  INFO -- :   Rendered etic/history.html.erb within layouts/application (19.8ms)
+I, [2015-05-27T09:50:23.328524 #773]  INFO -- :   Rendered etic/_header.html.erb (0.8ms)
+I, [2015-05-27T09:50:23.328690 #773]  INFO -- :   Rendered etic/_footer.html.erb (0.0ms)
+I, [2015-05-27T09:50:23.329044 #773]  INFO -- : Completed 200 OK in 71ms (Views: 18.5ms | ActiveRecord: 30.6ms)
+I, [2015-05-27T10:48:54.868523 #1428]  INFO -- : Started GET "/etic/history" for 127.0.0.1 at 2015-05-27 10:48:54 +0300
+I, [2015-05-27T10:48:54.906708 #1428]  INFO -- : Processing by EticController#history as HTML
+I, [2015-05-27T10:48:55.280955 #1428]  INFO -- :   Rendered etic/history.html.erb within layouts/application (18.7ms)
+I, [2015-05-27T10:48:55.281182 #1428]  INFO -- : Completed 500 Internal Server Error in 374ms
+F, [2015-05-27T10:48:55.283389 #1428] FATAL -- : 
+ActionView::Template::Error (undefined method `eponimo' for nil:NilClass):
+    61:                         <% kouf = kouf + i.posotoita %>
+    62:                      <% end %>
+    63:                   <td><%= par.id %></td> 
+    64:                   <td><%= customer.eponimo %> <%= customer.name %></td>
+    65:                   <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+    66:                   <td style="text-align:center"><%= kouf %></td>
+    67:                   <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+  app/views/etic/history.html.erb:64:in `block in _app_views_etic_history_html_erb___4032524685542187595_70103085209640'
+  app/views/etic/history.html.erb:52:in `_app_views_etic_history_html_erb___4032524685542187595_70103085209640'
+
+
+I, [2015-05-27T10:48:58.666457 #1428]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-05-27 10:48:58 +0300
+I, [2015-05-27T10:48:58.670608 #1428]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-05-27T10:48:58.675102 #1428]  INFO -- : Redirected to http://localhost:3000/etic/user_diax
+I, [2015-05-27T10:48:58.675265 #1428]  INFO -- : Filter chain halted as :require_no_authentication rendered or redirected
+I, [2015-05-27T10:48:58.675458 #1428]  INFO -- : Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+I, [2015-05-27T10:48:58.682684 #1428]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 10:48:58 +0300
+I, [2015-05-27T10:48:58.683780 #1428]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T10:48:58.747573 #1428]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (11.5ms)
+I, [2015-05-27T10:48:58.747753 #1428]  INFO -- : Completed 500 Internal Server Error in 64ms
+F, [2015-05-27T10:48:58.749313 #1428] FATAL -- : 
+ActionView::Template::Error (undefined method `eponimo' for nil:NilClass):
+    64:                         <% kouf = kouf + i.posotoita %>
+    65:                      <% end %>
+    66:                   <td><%= par.id %></td> 
+    67:                   <td><%= customer.eponimo %> <%= customer.name %></td>
+    68:                   <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+    69:                   <td style="text-align:center"><%= kouf %></td>
+    70:                   <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+  app/views/etic/user_diax.erb:67:in `block in _app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+  app/views/etic/user_diax.erb:55:in `_app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+
+
+I, [2015-05-27T10:49:55.208222 #1428]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-05-27 10:49:55 +0300
+I, [2015-05-27T10:49:55.210144 #1428]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-05-27T10:49:55.212925 #1428]  INFO -- : Redirected to http://localhost:3000/etic/user_diax
+I, [2015-05-27T10:49:55.213034 #1428]  INFO -- : Filter chain halted as :require_no_authentication rendered or redirected
+I, [2015-05-27T10:49:55.213160 #1428]  INFO -- : Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+I, [2015-05-27T10:49:55.219412 #1428]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 10:49:55 +0300
+I, [2015-05-27T10:49:55.220418 #1428]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T10:49:55.286857 #1428]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (13.2ms)
+I, [2015-05-27T10:49:55.287018 #1428]  INFO -- : Completed 500 Internal Server Error in 67ms
+F, [2015-05-27T10:49:55.288569 #1428] FATAL -- : 
+ActionView::Template::Error (undefined method `eponimo' for nil:NilClass):
+    64:                         <% kouf = kouf + i.posotoita %>
+    65:                      <% end %>
+    66:                   <td><%= par.id %></td> 
+    67:                   <td><%= customer.eponimo %> <%= customer.name %></td>
+    68:                   <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+    69:                   <td style="text-align:center"><%= kouf %></td>
+    70:                   <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+  app/views/etic/user_diax.erb:67:in `block in _app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+  app/views/etic/user_diax.erb:55:in `_app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+
+
+I, [2015-05-27T10:49:55.289892 #1428]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-05-27 10:49:55 +0300
+I, [2015-05-27T10:49:55.291100 #1428]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-05-27T10:49:55.293809 #1428]  INFO -- : Redirected to http://localhost:3000/etic/user_diax
+I, [2015-05-27T10:49:55.293895 #1428]  INFO -- : Filter chain halted as :require_no_authentication rendered or redirected
+I, [2015-05-27T10:49:55.294016 #1428]  INFO -- : Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+I, [2015-05-27T10:49:55.300769 #1428]  INFO -- : Started GET "/etic/user_diax" for 127.0.0.1 at 2015-05-27 10:49:55 +0300
+I, [2015-05-27T10:49:55.301734 #1428]  INFO -- : Processing by EticController#user_diax as HTML
+I, [2015-05-27T10:49:55.352202 #1428]  INFO -- :   Rendered etic/user_diax.erb within layouts/application (7.6ms)
+I, [2015-05-27T10:49:55.352337 #1428]  INFO -- : Completed 500 Internal Server Error in 51ms
+F, [2015-05-27T10:49:55.353771 #1428] FATAL -- : 
+ActionView::Template::Error (undefined method `eponimo' for nil:NilClass):
+    64:                         <% kouf = kouf + i.posotoita %>
+    65:                      <% end %>
+    66:                   <td><%= par.id %></td> 
+    67:                   <td><%= customer.eponimo %> <%= customer.name %></td>
+    68:                   <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+    69:                   <td style="text-align:center"><%= kouf %></td>
+    70:                   <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+  app/views/etic/user_diax.erb:67:in `block in _app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+  app/views/etic/user_diax.erb:55:in `_app_views_etic_user_diax_erb___4143299445388378319_70103089999060'
+
+

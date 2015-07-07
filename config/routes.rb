@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get 'etic/import_terms'
   get 'etic/import_sungate'
   get 'etic/history'
+  get 'etic/history_admin'
   #root 'etic#home'
   get 'etic/language'
   devise_scope :user do

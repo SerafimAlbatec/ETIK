@@ -212,10 +212,10 @@ $(window).load(function() {
         if ( code === 21 ){
           MpalkonoportaMonFegMegalo(color,1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -R" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
           DifDeksiaMikroXwrFeg(color,1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -L" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
           DifAristeraMikroXwrFeg(color,1,1);
         }
         if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
@@ -281,6 +281,14 @@ $(document).ready(function(){
     $("#xrwma_aplo").text(color_aplo);
     color = $(this).next().attr('id');
     var code = Number("<%= @open_type.code %>");
+    //Σβηνω αυτα που ειχα πατησει
+    $(".color").css('border-style', '');
+    $(".tipos_name").css('display', '');
+    //Κανω να φενετε με border αυτο που πατησα!!
+    $(this).css('border-style', 'solid');
+    $(this).css('border-width', '5px');
+    $(this).css('border-color', 'Gold');
+    $(this).prev().children().css('display', 'block');
     //alert(typeof(code));
     //alert(code);
     if ( code === 1 || code === 1.1 ){
@@ -329,10 +337,10 @@ $(document).ready(function(){
         if ( code === 21 ){
           MpalkonoportaMonFegMegalo(color,1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -R" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
           DifDeksiaMikroXwrFeg(color,1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -L" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
           DifAristeraMikroXwrFeg(color,1,1);
         }
         if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
@@ -365,6 +373,8 @@ $(document).ready(function(){
     $('h4').css("display","none");
     $(".margin1").css("display","none");
     $(".margin2").css("display","none");
+
+    $("#xrwma_kasas").click();
   });
 
   //Μολις πατήσω χρώμα φύλου, εμφανίζω το πλαισιο χρώμα φύλου, αρχικοποιω χρώματα και counter οτι μπηκα εδω
@@ -384,11 +394,13 @@ $(document).ready(function(){
     $('h4').css("display","none");
     $(".margin1").css("display","none");
     $(".margin2").css("display","none");
+
+    $("#xrwma_fullou").click();
   });
 
   //////////////   ΧΡΩΜΑΤΑ ΚΑΣΑΣ ///////////////////////////////////////////////////////////////////////
 
-  //Μολις πατήσω χρώμα κάσας εμφανίζω το πλαισιο.
+  //Μολις πατήσω χρώμα κάσας εμφανίζω το πλαισιο. 
   //Κρύβω το πλαισιο χρωμα φυλου χωρις να διαγραφω τις τιμες που ειχα επιλέξει
   //Αλλαζω το css σε label που πατω
   //Αδιαζω την περιοχη με label για να μην ξαναβγενουν
@@ -479,11 +491,19 @@ $(document).ready(function(){
               })
                var div = "<div class='margin2'></div>"
                $(div).appendTo(".standar");
+               console.log(this_deksia);
+                this_deksia.css('border-style', 'solid');
+                this_deksia.css('border-width', '5px');
+                this_deksia.css('border-color', 'Gold');
+                this_deksia.prev().children().css('display', 'block');
               console.log(data) //Δινει στοιχεια για τα data
               },
             error: function(data) { 
               }
           });//end ejax
+
+          
+    
 
   });
 
@@ -496,6 +516,19 @@ $(document).ready(function(){
         //$(".label_name").empty();
         var label_name = "<label class='label_deksia'>"+color_deksia+"</label><br>"
         $(label_name).appendTo(".label_dekia");
+
+        this_deksia = $(this);
+        console.log(this_deksia);
+        console.log($(this));
+
+        //Σβηνω αυτα που ειχα πατησει
+        $(".color").css('border-style', '');
+        $(".tipos_name").css('display', '');
+        //Κανω να φενετε με border αυτο που πατησα!!
+        $(this).css('border-style', 'solid');
+        $(this).css('border-width', '5px');
+        $(this).css('border-color', 'Gold');
+        $(this).prev().children().css('display', 'block');
 
         color = $(this).next().attr('id');
         var c = document.getElementById("canvas");

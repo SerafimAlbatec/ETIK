@@ -1,3 +1,4 @@
+<div id="loading"></div>
 <div class="container con_home">
   <div class="row row_mat">
     <div class="col-xs-4">
@@ -28,7 +29,7 @@
       </table>
       </div>
 
-      <div id="oti_nane" style="margin-top:550px;"></div>
+      <div id="oti_nane" style="margin-top:280px;"></div>
 
     </div>
 
@@ -154,7 +155,7 @@ $(document).ready(function(){
                   //alert(item.name);
                   //return $(".kataskevastes").html(item.name);
                   //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
-                  var div_data = "<label class=kataskevastis id="+item.id+">"+item.name+"</label><br>";
+                  var div_data = "<a onclick='kata_click()' style='text-decoration: none;'><label class=kataskevastis id="+item.id+">"+item.name+"</label></a><br>";
                   $(div_data).appendTo(".kataskevastes");
               })
               console.log(data) //Δινει στοιχεια για τα data
@@ -262,7 +263,7 @@ $(document).ready(function(){
             error: function(data) { 
               }
           });//end ejax
-          $('#loading_system').fadeOut(200);
+          $('#loading_system').fadeOut(1000);
   });//end click
 
   $(".lines").on("click", ".line_div", function() { //Click σε σειρά για εμφάνηση φύλλων

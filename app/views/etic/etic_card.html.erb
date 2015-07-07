@@ -7,50 +7,95 @@
   <div class="row row_admin">
 
     <div class="admin_main">
-        <h1>Users</h1>
-        <% if (!@user.nil?) %>
-          <% @user.each do |user| %>
-          <!--Υπολογισμοι για καθε user
-            1. Ποσα κουφωματα εχει κανει
-            2. Την παραγγελια του
-            3. Με each το συνολο τησ παραγγελιας του
-          -->
-          <% num_of_window =  Order.where(:user_id => user.id).count %>
-          <% user_order =  Order.where(:user_id => user.id).all %>
-          <% sunolo = 0; %>
-          <% kouf = 0 %>
-            <% user_order.each do |i| %>
-            <% sunolo = sunolo + i.price_sum %>
-            <% kouf = kouf + i.posotoita %>
-         <% end %>
-         <!-- end υπολογισμων -->
 
-            <div class="admin_user" id="<%= user.id %>">
-              <div class="user_id" style="display:none;"><%= user.id %></div>
-              <b>Name:</b> <%= user.name %><br>
-              <b>SurName:</b> <%= user.epitheto %><br>
-              <b>Phone:</b> <%= user.phone %><br>
-              <b>Address 1:</b> <%= user.address1 %><br>
-              <% if (!user.address2.nil?) %>
-              <b>Address 2:</b> <%= user.address2 %><br>
-              <% end %>
-              <b>Company:</b> <%= user.company %><br>
-              <b>E-mail:</b> <%= user.email %><br>
-              <b>Number of windows:</b> <%= kouf %><br>
-              <b>Total Price:</b> <%= number_with_precision(sunolo, :precision => 2) %> €<br>
-              <%= link_to "Orders", etic_user_diax_path(:user => user.id, :istoriko => 1) ,class: "btn btn-info done" %>
-              <button type="button" class="btn btn-default card_user" id="<%= user.id %>">Card</button>
-              <%= link_to "Done", etic_pse_done_path(:pse_user => user.id, :done => 1, :pse => 0) ,class: "btn btn-success done" %>
-              <%= link_to "No Done", etic_pse_done_path(:pse_user => user.id, :done => 0,  :pse => 0) ,class: "btn btn-primary done" %>
-            </div>
-            <% if (user.done == 1) %>
-                <div class="hidden" id="<%= user.id %>"></div>
-              <% end %>
-          <% end %>
-        <% end %>
-      </div> 
+    <h1>Orders</h1>
 
-  </div>
+    <div class="by_mult">Order by:</div>
+    
+    <select class="select" id="select" multiple="multiple" size="8">
+      <option value="code_low">code: Low to High</option>
+      <option value="code_high">code: High to Low</option>
+      <option value="name_a">name: A to Z</option>
+      <option value="name_z">name: Z to A</option>
+      <option value="date_new">date: New to Old</option>
+      <option value="date_old">date: Old to New</option>
+      <option value="price_high">price: High to Low</option>
+      <option value="price_low">price: Low to High</option>
+    </select>
+
+    <div class="by_mult">Order by:</div>
+
+    <select class="select2" id="cust" multiple="multiple" size="8">
+      <option value="0">All</option>
+      <% @customers.each do |c| %>
+      <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>, <%= c.company %>  </option>
+      <% end %>
+    </select>
+
+    <%= form_tag etic_etic_card_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "all", :name => "all" %>
+      </p>
+    <% end %>
+
+   
+      <div class="table-responsive">
+          <div class="pdf" id="pdf">
+            <table class="table table_card table_grammata_diax">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head">code</th>
+                <th id="kartoula_head">Dealer</th>
+                <th id="kartoula_head">Customer</th> 
+                <th id="kartoula_head">Date</th>
+                <th id="kartoula_head">Number of windows</th> 
+                <th id="kartoula_head">total price</th>
+                <th id="kartoula_head">card</th>
+                <th id="kartoula_head">+</th>
+                
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@paraggelies.nil?) %>
+              <% @paraggelies.each do |par| %>
+                <tr class="root">
+                  <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+                  <% admin =  User.where(:id => par.user).first %>
+                  <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+                  <% order =  Order.where(:paraggelia_id => par.id).all %>
+                  <% sunolo = 0; %>
+                      <% kouf = 0 %>
+                        <% order.each do |i| %>
+                        <% sunolo = sunolo + i.price_sum %>
+                        <% kouf = kouf + i.posotoita %>
+                     <% end %>
+                  <td><%= par.id %></td> 
+                  <td><%= admin.name %></td> 
+                  <td><%= customer.eponimo %> <%= customer.name %></td>
+                  <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+                  <td style="text-align:center"><%= kouf %></td>
+                  <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+                  <td><button type="button" class="btn btn-default card" id="<%= par.id %>">Card </button></td>
+                  <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id, :dealer => admin.id) ,class: "btn btn-primary", id: par.id %></td>
+                  
+                </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+
+
+      </div><!--div gia table-->
+    </div><!--div gia table-->
+
+
+      </div> <!--admin main-->
+
+  </div><!--row-->
 
   <div class="row">
     <h1>Pseudo Users</h1>
@@ -119,7 +164,7 @@ $(document).ready(function(){
 
   $(".card").click(function(){
     id = $(this).attr('id');
-    window.location.href = "<%= etic_etic_pse_user_card_path %>?id="+id+""
+    window.location.href = "<%= etic_simple_pse_user_card_path %>?id="+id+""
   });
 
 

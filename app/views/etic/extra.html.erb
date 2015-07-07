@@ -448,6 +448,12 @@
 
   </div>
 
+    <div class="home_right_add_card">
+        <div class="button">
+          <button type="button" class='btn btn-primary order_prin' data-toggle="modal" data-target="#myModal_xwrisma"><%= t 'diastaseis.add_card' %></button>
+        </div>
+      </div>
+
     <div class="home_right">
         <a href="#panw" class="btn btn-primary" id="home_right"><span class="glyphicon glyphicon-chevron-up"></span></a>
       </div>
@@ -685,10 +691,10 @@ $(window).load(function() {
         if ( code === 21 ){
           MpalkonoportaMonFegMegalo("<%= @color.code %>",1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -R" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
           DifDeksiaMikroXwrFeg("<%= @color.code %>",1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -L" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
           DifAristeraMikroXwrFeg("<%= @color.code %>",1,1);
         }
         if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
@@ -1013,6 +1019,8 @@ $(window).load(function() {
 
                       $( epilogi ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                       $( epilogi ).css("color","");
+                      apomenoun_akomi_deksia = 3 - sunolika_profil_deksia;
+                      alert("Εισαγωγή μόνο τριών προφίλ. Εχετε επιλέξει ήδη "+sunolika_profil_deksia+" συνολικά προφίλ δεξια. Απομένουν ακόμη "+apomenoun_akomi_deksia+" προφίλ δεξιά!");
                   }
 
                   if (sunolika_profil_deksia > 0 && profil_deksia_counter > 0){
@@ -1041,6 +1049,7 @@ $(window).load(function() {
                   
                           
                   }else{
+                    alert("Το παράθυρο είναι μικρό");
 
                   }
                   },
@@ -1324,6 +1333,8 @@ $(window).load(function() {
 
                       $( epilogi_a ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                       $( epilogi_a ).css("color","");
+                      apomenoun_akomi_aristera = 3 - sunolika_profil_aristera;
+                      alert("Εισαγωγή μόνο τριών προφίλ. Εχετε επιλέξει ήδη "+sunolika_profil_aristera+" συνολικά προφίλ αριστερά. Απομένουν ακόμη "+apomenoun_akomi_aristera+" προφίλ αριστερά!");
                   }
 
                   if (sunolika_profil_aristera > 0 && profil_aristera_counter > 0){
@@ -1352,6 +1363,7 @@ $(window).load(function() {
                   
                           
                   }else{
+                    alert("Μικρό παράθυρο");
 
                   }
                   },
@@ -1637,6 +1649,8 @@ $(window).load(function() {
 
                       $( epilogi_p ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                       $( epilogi_p ).css("color","");
+                      apomenoun_akomi_panw = 3 - sunolika_profil_panw;
+                      alert("Εισαγωγή μόνο τριών προφίλ. Εχετε επιλέξει ήδη "+sunolika_profil_panw+" συνολικά προφίλ επάνω. Απομένουν ακόμη "+apomenoun_akomi_panw+" προφίλ επάνω!");
                   }
 
                   if (sunolika_profil_panw > 0 && profil_panw_counter > 0){
@@ -1667,6 +1681,7 @@ $(window).load(function() {
                   
                           
                   }else{
+                    alert("Μικρό παράθυρο!!");
 
                   }
                   },
@@ -1949,6 +1964,8 @@ $(window).load(function() {
 
                       $( epilogi_k ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                       $( epilogi_k ).css("color","");
+                      apomenoun_akomi_katw = 3 - sunolika_profil_katw;
+                      alert("Εισαγωγή μόνο τριών προφίλ. Εχετε επιλέξει ήδη "+sunolika_profil_katw+" συνολικά προφίλ κάτω. Απομένουν ακόμη "+apomenoun_akomi_katw+" προφίλ κάτω!");
                   }
 
                   if (sunolika_profil_katw > 0 && profil_katw_counter > 0){
@@ -1990,6 +2007,7 @@ $(window).load(function() {
                   
                           
                   }else{
+                    alert("Μικρό παράθυρο");
 
                   }
                   },
@@ -3282,6 +3300,11 @@ $(window).load(function() {
         data: fd,
         processData: false,
         contentType: false,
+        success: function(data) {
+          window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+stra+strb;
+        },
+        error: function(data) { 
+        }
       });//end ejax
 
       profil_deksia_1 = 0;
@@ -3553,7 +3576,7 @@ $(window).load(function() {
 
       //alert(str1+str2+str3);
 
-      window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+stra+strb;
+      //window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+stra+strb;
      /*
      if ( epikathimeno_rolo != 0){
 

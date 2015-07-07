@@ -218,10 +218,10 @@ $(window).load(function() {
         if ( code === 21 ){
           MpalkonoportaMonFegMegalo("<%= @color.code %>",1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -R" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
           DifDeksiaMikroXwrFeg("<%= @color.code %>",1,1);
         }
-        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit F -L" ){
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
           DifAristeraMikroXwrFeg("<%= @color.code %>",1,1);
         }
         if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
@@ -665,6 +665,19 @@ $(document).ready(function(){
 
   });
 
+// Convert dataURL to Blob object
+        function dataURLtoBlob(dataURL) {
+          // Decode the dataURL    
+          var binary = atob(dataURL.split(',')[1]);
+          // Create 8-bit unsigned array
+          var array = [];
+          for(var i = 0; i < binary.length; i++) {
+              array.push(binary.charCodeAt(i));
+          }
+          // Return our Blob object
+          return new Blob([new Uint8Array(array)], {type: 'image/png'});
+        }
+
   $(".order").click(function(){
     if ( ( Number($("#width").val()) <= Number($("#maxw").text()) ) && ( Number($("#width").val()) >= Number($("#minw").text()) ) ) {
       //alert( "<%= t 'diastaseis.swsto_width' %>" );
@@ -678,18 +691,7 @@ $(document).ready(function(){
         fd.append("image", file);
 
 
-        // Convert dataURL to Blob object
-        function dataURLtoBlob(dataURL) {
-          // Decode the dataURL    
-          var binary = atob(dataURL.split(',')[1]);
-          // Create 8-bit unsigned array
-          var array = [];
-          for(var i = 0; i < binary.length; i++) {
-              array.push(binary.charCodeAt(i));
-          }
-          // Return our Blob object
-          return new Blob([new Uint8Array(array)], {type: 'image/png'});
-        }
+        
 
         $.ajax({
           type:'POST',
@@ -698,9 +700,14 @@ $(document).ready(function(){
           data: fd,
           processData: false,
           contentType: false,
+          success: function(data) {
+               window.location.href = "<%= etic_price_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+$(".color_main").text()+"&color_deksia="+$(".color_deksia").text()+"&color_aristera="+$(".color_aristera").text()+"&color_panw="+$(".color_panw").text()+"&color_katw="+$(".color_katw").text()+"&color_fulou="+$(".color_fullou").text()+"&posotita="+1+"&width="+$("#width").val()+"&height="+$("#height").val()+"&xwrisma1="+xwrisma1+"&xwrisma2="+xwrisma2+"&xwrisma3_1="+xwrisma3_1+"&xwrisma3_2="+xwrisma3_2+"&xwrisma3_3="+xwrisma3_3+"&mesa_eksw="+<%= @mesa_eksw %>+"&lastixo="+lastixo+"&new_width="+$("#width").val()+"&new_height="+$("#height").val()+"&xwrisma_y_1="+xwrisma_y_1+"&xwrisma_y_2="+xwrisma_y_2+"";
+        },
+        error: function(data) { 
+        }
         });//end ejax
         //Εδω θα στείλω στον server για ολοκληρωση παραγγελιας
-        window.location.href = "<%= etic_price_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+$(".color_main").text()+"&color_deksia="+$(".color_deksia").text()+"&color_aristera="+$(".color_aristera").text()+"&color_panw="+$(".color_panw").text()+"&color_katw="+$(".color_katw").text()+"&color_fulou="+$(".color_fullou").text()+"&posotita="+1+"&width="+$("#width").val()+"&height="+$("#height").val()+"&xwrisma1="+xwrisma1+"&xwrisma2="+xwrisma2+"&xwrisma3_1="+xwrisma3_1+"&xwrisma3_2="+xwrisma3_2+"&xwrisma3_3="+xwrisma3_3+"&mesa_eksw="+<%= @mesa_eksw %>+"&lastixo="+lastixo+"&new_width="+$("#width").val()+"&new_height="+$("#height").val()+"&xwrisma_y_1="+xwrisma_y_1+"&xwrisma_y_2="+xwrisma_y_2+"";
+        
       } else {
         alert( "<%= t 'diastaseis.lathos_height' %>" );
       }

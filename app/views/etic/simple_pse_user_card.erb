@@ -1,3 +1,4 @@
+<div id="loading"></div>
 <div class="container con_home">
   <div class="row row_mat">
   	<div class="col-md-12">
@@ -166,7 +167,8 @@
                   <% if @done != 1 %>
                   <td><%= link_to 'Destroy', etic_destroy_path(:id => item.id), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs'%><br>
                   <% if @admin != "1" %>
-                  <%= link_to " Επανάληψη", etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:name => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id), class: "btn btn-warning"%>
+                  <%= link_to " Επανάληψη", etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:name => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id), class: "btn btn-warning"%>
+                  <% else %>
                   <% end %>
                 </td>
                 <% end %><!--End tou if gia user done-->

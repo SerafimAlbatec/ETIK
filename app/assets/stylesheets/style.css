@@ -1,4 +1,4 @@
-::-webkit-scrollbar {
+f::-webkit-scrollbar {
     width: 6px;
 }
 
@@ -148,6 +148,13 @@ h1, h2, h3, h4 {
 .home_right {
   position: fixed;
   bottom: 100px;
+  right: 0px;
+  z-index: 100;
+}
+
+.home_right_add_card {
+  position: fixed;
+  bottom: 150px;
   right: 0px;
   z-index: 100;
 }
@@ -880,7 +887,7 @@ output {
 }
 
 .select{
-  float: left;
+  //float: left;
   margin-bottom: 50px;
   margin-right: 15px;
 }

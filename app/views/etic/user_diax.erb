@@ -8,11 +8,17 @@
   <div class="row">
     <%= link_to "Import terms", etic_import_terms_path ,class: "btn btn-primary" %>
     <%= link_to "Import customers", etic_import_sungate_path ,class: "btn btn-primary" %>
-    <h1>Orders</h1>
+    <h1><b>Orders</b></h1>
+
+    <div class="gen_info"> 
+        <p> - Με το κουμπί νέα προσφωρά δημιουργείται μία νέα παραγγελία. </br> - Στο κάτω μέρος της οθόνης φαίνονται οι τρέχουσες παραγγελίες. Αν δεν τις βλέπετε, κάντε scroll με το ποντίκι σας.
+        </p>
+    </div>
+    </br>
 
     <div class="by_mult">Order by:</div>
     
-    <select class="select" id="select" multiple="multiple">
+    <select class="select" id="select" multiple="multiple" size="8">
       <option value="code_low">code: Low to High</option>
       <option value="code_high">code: High to Low</option>
       <option value="name_a">name: A to Z</option>
@@ -23,14 +29,19 @@
       <option value="price_low">price: Low to High</option>
     </select>
 
-    <div class="by_mult">Order by:</div>
+    <div class="gen_info"> 
+        <p> Η αναζήτηση γίνεται βάση του επιθέτου του πελάτι. </br> Με το κουμπί All εμφανίζονται ξανά όλοι οι πελάτες.
+        </p>
+    </div>
+    </br>
 
-    <select class="select2" id="cust" multiple="multiple">
-      <option value="0">All</option>
-      <% @customers.each do |c| %>
-      <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>, <%= c.company %>  </option>
-      <% end %>
-    </select>
+    <%= form_tag etic_user_diax_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "all", :name => "all" %>
+      </p>
+    <% end %>
 
    
       <div class="table-responsive">
@@ -39,12 +50,12 @@
 
             <thead>
               <tr class="root">
-                <th id="kartoula_head">code</th>
-                <th id="kartoula_head">name</th> 
+                <th id="kartoula_head">Code</th>
+                <th id="kartoula_head">Name</th> 
                 <th id="kartoula_head">Date</th>
                 <th id="kartoula_head">Number of windows</th> 
-                <th id="kartoula_head">total price</th>
-                <th id="kartoula_head">card</th>
+                <th id="kartoula_head">Total price</th>
+                <th id="kartoula_head">Card</th>
                 <th id="kartoula_head">+</th>
                 
               </tr>
@@ -63,7 +74,7 @@
                         <% sunolo = sunolo + i.price_sum %>
                         <% kouf = kouf + i.posotoita %>
                      <% end %>
-                  <td><%= par.id %></td> 
+                  <td><%= par.id %></td>
                   <td><%= customer.eponimo %> <%= customer.name %></td>
                   <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
                   <td style="text-align:center"><%= kouf %></td>
@@ -144,13 +155,6 @@ $(document).ready(function(){
 
     });
 
-
-  $("#cust").change(function () {
-
-      var cust = this.value;
-      window.location.href = "<%= etic_user_diax_path %>?customer="+cust;
-
-    });
 
   
 
