@@ -13,12 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 'root'
-  socket: /var/run/mysqld/mysqld.sock
-  database: etic
-  host: 127.0.0.1
-  port: 8889
+  username: rails
+  password: 'kq0gzxqzvR'
+  database: survey
+  host: localhost
 
 development:
   <<: *default
@@ -50,5 +48,3 @@ test:
 #
 production:
   <<: *default
-  #username: etic
-  #password: <%= ENV['ETIC_DATABASE_PASSWORD'] %>
