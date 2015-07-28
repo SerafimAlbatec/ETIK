@@ -3,9 +3,9 @@ class Paraggelia < ActiveRecord::Base
 
 	def self.search(search, current_user_id, all)
 	  if ( search && all = !all) 
-	  	where("eponimo LIKE ? AND user like ? AND done like ?", "%#{search}%", current_user_id, 0)
+	  	where("(eponimo LIKE ? OR name LIKE ?) AND user like ? AND done like ?", "%#{search}%", "%#{search}%", current_user_id, 0).order("updated_at").reverse
 	  else
-	    where(:user => current_user_id, :done => 0)
+	    where(:user => current_user_id, :done => 0).order("updated_at").reverse
 	  end
 	end
 

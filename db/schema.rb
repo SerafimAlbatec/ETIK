@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618085907) do
+ActiveRecord::Schema.define(version: 20150722074727) do
 
   create_table "cat_tzamia", force: true do |t|
     t.text     "name"
@@ -245,6 +245,8 @@ ActiveRecord::Schema.define(version: 20150618085907) do
     t.integer  "done"
     t.float    "sum",        limit: 24
     t.text     "eponimo"
+    t.text     "name"
+    t.text     "company"
   end
 
   create_table "persides", force: true do |t|
@@ -280,6 +282,7 @@ ActiveRecord::Schema.define(version: 20150618085907) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "done"
+    t.text     "user_id"
   end
 
   create_table "rola_colors", force: true do |t|

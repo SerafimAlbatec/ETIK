@@ -1,10 +1,8 @@
+<div id="loading"></div>
 <div class="container box_shadow">
   <div class="row">
-    <div class="col-md-3" id="leftCol">
-    </div>
-    <div class="col-md-6">
-
-		<h1>Log in</h1>
+    <div class="col-md-6" id="leftCol">
+        <h1>Log in</h1>
 
 		<div class="gen_info"> 
           <p class="gen_p_info">Welcome to our new eshop-application!!! In order to continue with this application please first Log in with your data. If you don't have an account redirect to our Sign up page. Thank you for visiting us!!</br></br>
@@ -12,6 +10,11 @@
           </p>
           <!-- image_tag("/assets/firefox.png" -->
         </div>
+
+    </div><!--Col-->
+
+    <div class="col-md-6">
+
 
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "epikoinonia_form", id: "contact-form"}) do |f| %>
 

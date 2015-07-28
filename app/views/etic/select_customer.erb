@@ -1,6 +1,7 @@
 <div class="container con_home">
   
   <div class="row">
+    <div class="col-xs-5 col-5" style="width:520px;">
     <h1>Select customer</h1>
 
     <%= form_tag etic_select_customer_path, :method => 'get' do %>
@@ -20,9 +21,12 @@
       <% end %>
     </select>
 
+    <button class="btn btn-primary ok">Continue</button>
+    <%= link_to "Νέος Πελάτης", etic_new_user_path, class: "btn btn-primary"%>
+    </div><!--col-->
+
     </br>
 
-    <button class="btn btn-primary ok">Continue</button>
 
   </div>
 </div>
@@ -31,9 +35,14 @@
 
   $(".container").on("click", ".ok", function() {
     
-    ti_epeleksa_option = $('#cust').find(":selected").val();
+    ti_epeleksa_option_cust = $('#cust').find(":selected").val();
+    ti_epeleksa_option_new_user = $('#cust2').find(":selected").val();
 
-    window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option;
+    if(typeof ti_epeleksa_option_cust === 'undefined'){
+      window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option_cust;
+    }else{
+      window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option_cust;
+    }
 
 
   });//end ok

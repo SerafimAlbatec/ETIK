@@ -6,34 +6,8 @@
         <% end %>
       </div>
   <div class="row">
-    <%= link_to "Import terms", etic_import_terms_path ,class: "btn btn-primary" %>
-    <%= link_to "Import customers", etic_import_sungate_path ,class: "btn btn-primary" %>
-    <h1><b>Orders</b></h1>
 
-    <div class="gen_info"> 
-        <p> - Με το κουμπί νέα προσφωρά δημιουργείται μία νέα παραγγελία. </br> - Στο κάτω μέρος της οθόνης φαίνονται οι τρέχουσες παραγγελίες. Αν δεν τις βλέπετε, κάντε scroll με το ποντίκι σας.
-        </p>
-    </div>
-    </br>
-
-    <div class="by_mult">Order by:</div>
-    
-    <select class="select" id="select" multiple="multiple" size="8">
-      <option value="code_low">code: Low to High</option>
-      <option value="code_high">code: High to Low</option>
-      <option value="name_a">name: A to Z</option>
-      <option value="name_z">name: Z to A</option>
-      <option value="date_new">date: New to Old</option>
-      <option value="date_old">date: Old to New</option>
-      <option value="price_high">price: High to Low</option>
-      <option value="price_low">price: Low to High</option>
-    </select>
-
-    <div class="gen_info"> 
-        <p> Η αναζήτηση γίνεται βάση του επιθέτου του πελάτι. </br> Με το κουμπί All εμφανίζονται ξανά όλοι οι πελάτες.
-        </p>
-    </div>
-    </br>
+  <h1><b>Orders</b></h1>
 
     <%= form_tag etic_user_diax_path, :method => 'get' do %>
       <p>
@@ -50,11 +24,11 @@
 
             <thead>
               <tr class="root">
-                <th id="kartoula_head">Code</th>
-                <th id="kartoula_head">Name</th> 
-                <th id="kartoula_head">Date</th>
+                <th id="kartoula_head">Code <%= link_to "↑", etic_user_diax_path(:order => "code_high") %><%= link_to "↓", etic_user_diax_path(:order => "code_low") %></th>
+                <th id="kartoula_head">Name <%= link_to "↑", etic_user_diax_path(:order => "name_z") %><%= link_to "↓", etic_user_diax_path(:order => "name_a") %></th> 
+                <th id="kartoula_head">Date <%= link_to "↑", etic_user_diax_path(:order => "date_new") %><%= link_to "↓", etic_user_diax_path(:order => "date_old") %></th>
                 <th id="kartoula_head">Number of windows</th> 
-                <th id="kartoula_head">Total price</th>
+                <th id="kartoula_head">Total price <%= link_to "↑", etic_user_diax_path(:order => "price_high") %><%= link_to "↓", etic_user_diax_path(:order => "price_low") %></th>
                 <th id="kartoula_head">Card</th>
                 <th id="kartoula_head">+</th>
                 
@@ -76,7 +50,7 @@
                      <% end %>
                   <td><%= par.id %></td>
                   <td><%= customer.eponimo %> <%= customer.name %></td>
-                  <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+                  <td><%= par.updated_at.strftime("%d %b %y %H:%M:%S") %></td>
                   <td style="text-align:center"><%= kouf %></td>
                   <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
                   <td><button type="button" class="btn btn-default card" id="<%= par.id %>">Card </button></td>
@@ -91,6 +65,42 @@
 
       </div><!--div gia table-->
     </div><!--div gia table-->
+
+
+    <%= link_to "Import terms", etic_import_terms_path ,class: "btn btn-primary" %>
+    <%= link_to "Import customers", etic_import_sungate_path ,class: "btn btn-primary" %>
+
+    <%
+=begin %>
+
+    <div class="gen_info"> 
+        <p> - Με το κουμπί νέα προσφωρά δημιουργείται μία νέα παραγγελία. </br> - Στο κάτω μέρος της οθόνης φαίνονται οι τρέχουσες παραγγελίες. Αν δεν τις βλέπετε, κάντε scroll με το ποντίκι σας.
+        </p>
+    </div>
+    </br>
+
+    <div class="by_mult">Order by:</div>
+    
+    <select class="select" id="select" multiple="multiple" size="8">
+      <option value="code_low">code: Low to High</option>
+      <option value="code_high">code: High to Low</option>
+      <option value="name_a">name: A to Z</option>
+      <option value="name_z">name: Z to A</option>
+      <option value="date_new">date: New to Old</option>
+      <option value="date_old">date: Old to New</option>
+      <option value="price_high">price: High to Low</option>
+      <option value="price_low">price: Low to High</option>
+    </select>
+
+    <div class="gen_info"> 
+        <p>Με το κουμπί All εμφανίζονται ξανά όλοι οι πελάτες.
+        </p>
+    </div>
+    </br>
+
+    <%
+=end %>
+
 
   </div>
 </div>

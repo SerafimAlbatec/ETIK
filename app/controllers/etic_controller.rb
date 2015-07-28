@@ -7,6 +7,8 @@ class EticController < ApplicationController
     ## Εκτος αν αλλαξω γλωσσα που γίνεται και στην αρχικη σελιδα του log in.
 	before_action :authenticate_user!, except: [:language, :contact, :send_mail]
 
+	layout "app", :only => [:home, :material, :leaf, :open_type, :color, :diastaseis, :extra]
+
     ## Αλλαγη γλωσσας. Γενικα εχω ένα session[:locale] απο το application_controller.
     ## Αν αλλαξει η γλωσσα την αλλαζω με τα if. 
 	def language
@@ -442,6 +444,12 @@ class EticController < ApplicationController
 		@line = Line.where(:name => params[:line_name]).first
 		@leaf = Leaf.where(:name => params[:leaf_name]).first
 		@open_type = OpenType.where(:name => params[:open_type_name]).first
+		#parts = @open_type.code.to_s.split(".")
+		#result = parts.count > 1 ? parts[1].to_s : 0
+		require 'bigdecimal'
+		div_mod = BigDecimal(@open_type.code.to_s).divmod 1
+		result = div_mod[1].to_s
+		open_type_code = @open_type.code
 		@color = Color.where(:name => params[:color_name]).first
 		@mesa_eksw = params[:mesa_eksw]
 		##if params exists ΚΑΝΟΝΙΚΑ
@@ -536,7 +544,7 @@ class EticController < ApplicationController
 
         ## HASH με διακυμάνσεις τιμών σύμφωνα με την βάση μου.
         ## Ανάλογα με το μίκος και ύψος, που πάτησα ψαχνω μεσα σε αυτα τα hash και πέρνω μια τιμή, το κλειδί. 
-        widths = { 600 => (350..700), 701 => (701..800), 801 => (801..900), 901 => (901..1000), 1001 => (1001..1100), 1101 => (1101..1200), 1201 => (1201..1300), 1301 => (1301..1400), 1401 => (1401..1500), 1501 => (1501..1600), 1601 => (1601..1700), 1701 => (1701..1800), 1801 => (1801..1900), 1901 => (1901..2000), 2001 => (2001..2100), 2101 => (2101..2200), 2201 => (2201..2300), 2301 => (2301..2400), 2401 => (2401..2500), 2501 => (2501..2600), 2601 => (2601..2700), 2701 => (2701..2800), 2801 => (2801..2900), 2901 => (2901..3000), 3001 => (3001..3100)}
+        widths = { 600 => (350..700), 701 => (701..800), 801 => (801..900), 901 => (901..1000), 1001 => (1001..1100), 1101 => (1101..1200), 1201 => (1201..1300), 1301 => (1301..1400), 1401 => (1401..1500), 1501 => (1501..1600), 1601 => (1601..1700), 1701 => (1701..1800), 1801 => (1801..1900), 1901 => (1901..2000), 2001 => (2001..2100), 2101 => (2101..2200), 2201 => (2201..2300), 2301 => (2301..2400), 2401 => (2401..2500), 2501 => (2501..2600), 2601 => (2601..2700), 2701 => (2701..2800), 2801 => (2801..2900), 2901 => (2901..3000), 3001 => (3001..3100), 3101 => (3101..3200), 3201 => (3201..3300), 3301 => (3301..3400), 3401 => (3401..3500), 3501 => (3501..3600), 3701 => (3701..3800), 3801 => (3801..3900), 3901 => (3901..4000), 4001 => (4001..4101)}
         heights = { 600 => (350..700), 701 => (701..800), 801 => (801..900), 901 => (901..1000), 1001 => (1001..1100), 1101 => (1101..1200), 1201 => (1201..1300), 1301 => (1301..1400), 1401 => (1401..1500), 1501 => (1501..1600), 1601 => (1601..1700), 1701 => (1701..1800), 1801 => (1801..1900), 1901 => (1901..2000), 2001 => (2001..2100), 2101 => (2101..2200), 2201 => (2201..2300), 2301 => (2301..2400), 2401 => (2401..2500), 2501 => (2501..2600), 2601 => (2601..2700), 2701 => (2701..2800), 2801 => (2801..2900), 2901 => (2901..3000), 3001 => (3001..3100), 3101 => (3101..3200), 3201 => (3201..3300), 3301 => (3301..3400), 3401 => (3401..3500), 3501 => (3501..3600), 3701 => (3701..3800), 3801 => (3801..3900), 3901 => (3901..4000), 4001 => (4001..4101)}
         
         width_index = widths.select do |k,v|
@@ -626,8 +634,11 @@ class EticController < ApplicationController
 
         ##Γενικη τιμη. Η τιμή χωρίς έξτρα. Μονο επιβάρινση γραμμης, λάστιχού και χρώματος. 
         #@price_temp = @open_type.send("h#{height_index}p#{width_index}".to_sym)
-        @price_temp = Pricelist.where(:code => @open_type.code, :width => width_index, :height => height_index).first.price
-
+        if (result == "0.1")
+        	@price_temp = Pricelist.where("code LIKE ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
+        else
+        	@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
+        end
         ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ---
         @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
         ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
@@ -641,7 +652,7 @@ class EticController < ApplicationController
         elsif ( @mesa_eksw == '1'  )
           ep = @color.mia_pleura
         end
-        ################# Αν εχω και τα 2 εχτρα κια για τις 2 πλευρες
+        ################# Αν εχω και τα 2 εχτρα και για τις 2 πλευρες
         if (@mesa_eksw == '1' && !@color_deksia.nil? && !@color_fulou.nil?)
           color_array = [@color_deksia.mia_pleura, @color_aristera.mia_pleura, @color_panw.mia_pleura, @color_katw.mia_pleura, @color_fulou.mia_pleura, @color.mia_pleura ]
           ep = color_array[color_array.index(color_array.compact.max)]
@@ -752,8 +763,11 @@ class EticController < ApplicationController
 			end
 		end
 
-		@price_temp = Pricelist.where(:code => @open_type.code, :width => width_index, :height => height_index).first.price
-	        
+		if (result == "0.1")
+        	@price_temp = Pricelist.where("code LIKE ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
+        else
+        	@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
+        end 
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ
 	    @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
@@ -1061,13 +1075,20 @@ class EticController < ApplicationController
 			      @order.pse = 1
 			    else
 			      @order.paraggelia_id = session[:paraggelia_simple]
+			      paraggelia = Paraggelia.where(:id => session[:paraggelia_simple]).first
+			      paraggelia.updated_at = DateTime.now
+			      paraggelia.save
 		          @order.user_id = session[:dealer_id]
 		          @order.pse = 0
 		        end
 		    else
 		      @order.paraggelia_id = session[:paraggelia_simple]
+		      paraggelia = Paraggelia.where(:id => session[:paraggelia_simple]).first
+			  paraggelia.updated_at = DateTime.now
+			  paraggelia.save
 		      @order.user_id = current_user.id
 		      @order.pse = 0
+		      session.delete(:paraggelia_simple)
 		    end
 		    #last = Order.order("created_at").last
 		    #id_canvas = last.id + 1
@@ -1448,6 +1469,7 @@ class EticController < ApplicationController
     ## Διαγράφω το επιλεγμένο κούφωμα. 
 	def destroy
 	  @item = Order.find(params[:id])
+      File.delete("#{Rails.root}/public/upload/#{@item.canvas}.png")
 	  @item.destroy
 	  if current_user.admin == 1
         redirect_to etic_etic_card_path
@@ -1519,7 +1541,7 @@ class EticController < ApplicationController
 
        
     	if( !params[:customer].nil? )
-            @paraggelies = Paraggelia.where(:customer => params[:customer], :done => 0).order("created_at").reverse
+            @paraggelies = Paraggelia.where(:customer => params[:customer], :done => 0).order("updated_at").reverse
             #@paraggelies = Paraggelia.search(params[:search],params[:customer],params[:all])
     	end
     	if( params[:customer] == "0" )
@@ -1540,10 +1562,10 @@ class EticController < ApplicationController
             @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("id").reverse
     	end
     	if(params[:order] == "date_old")
-            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("created_at")
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("updated_at")
     	end
     	if(params[:order] == "date_new")
-            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("created_at").reverse
+            @paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("updated_at").reverse
     	end
     	if(params[:order] == "name_a")
     		@paraggelies = Paraggelia.where(:user => current_user.id, :done => 0).order("eponimo")
@@ -1686,6 +1708,7 @@ class EticController < ApplicationController
     	#@customers = SimpleUserPse.where(:user_id => user.id)
     	#@customers = SimpleUserPse.where(:dealer_num => user.sungate_code).order("eponimo")
     	@customers = SimpleUserPse.search(params[:search],user.sungate_code,params[:all])
+    	@pse = PseUser.search_pse(params[:search],user.id,params[:all])
     end
 
     def new_offer
@@ -1693,7 +1716,9 @@ class EticController < ApplicationController
     	offer.user = current_user.id
     	offer.customer = params[:customer_id]
     	eponimo_customer = SimpleUserPse.where(:id => params[:customer_id]).first
-    	offer.eponimo = eponimo_customer.name
+    	offer.eponimo = eponimo_customer.eponimo
+    	offer.name = eponimo_customer.name
+    	offer.company = eponimo_customer.company
     	offer.done = 0
     	offer.save
     	redirect_to etic_simple_pse_user_path(:paraggelia_id => offer.id)
@@ -1768,6 +1793,7 @@ class EticController < ApplicationController
     def diagrafi_simple_user
   	  @item = Order.where(:paraggelia_id => params[:id])
       @item.each do |i|
+      	File.delete("#{Rails.root}/public/upload/#{i.canvas}.png")
         i.destroy
       end
       paraggelia = Paraggelia.where(:id => params[:id]).first.destroy
@@ -1900,20 +1926,22 @@ class EticController < ApplicationController
 
     ## Δημιουργία νέου user. 
     def add_user
-  	  user = PseUser.new
+  	  #user = PseUser.new
+  	  user = SimpleUserPse.new
  
-  	  user.name  = params[:onoma]
-  	  user.eponimo = params[:eponimo]
+  	  user.name  = params[:name]
+  	  user.eponimo = params[:surname]
+  	  user.address = params[:address]
   	  user.company = params[:company]
   	  user.phone = params[:phone]
   	  user.email = params[:email]
-  	  user.address = params[:address]
+  	  user.dealer_num = current_user.sungate_code
   	  user.save
-  	  if !user.new_record?
+  	  if user.persisted?
   	  	#redirect_to etic_home_path(:pse_user => user.id)
-  	  	redirect_to etic_etic_card_path
+  	  	redirect_to etic_select_customer_path
   	  else
-  	    redirect_to etic_new_user_path
+  	    redirect_to etic_select_customer_path
   	  end
   	  #if( !params[:onoma].present? && !params[:eponimo].present? && !params[:company].present? && !params[:phone].present? && !params[:email].present? && !params[:address].present?)
     end

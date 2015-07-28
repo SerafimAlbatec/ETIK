@@ -1,3 +1,5 @@
+<%
+=begin %>
 <div class="container box_shadow">
   <div class="row">
     <div class="col-md-3" id="leftCol">
@@ -6,27 +8,27 @@
       <form class="epikoinonia_form">
         <div class="form-group">
           <label for="onoma">Ονομα:</label>
-          <input type="text" class="form-control" id="onoma" placeholder="Θέμα" name="onoma" required>
+          <input type="text" class="form-control" id="onoma" placeholder="Θέμα" name="onoma" requigreen>
         </div>
         <div class="form-group">
           <label for="eponimo">Eponimo:</label>
-          <input type="text" class="form-control" id="eponimo" placeholder="Θέμα" name="eponimo" required>
+          <input type="text" class="form-control" id="eponimo" placeholder="Θέμα" name="eponimo" requigreen>
         </div>
         <div class="form-group">
           <label for="address">Dieuthinsi:</label>
-          <input type="text" class="form-control" id="address" placeholder="Θέμα" name="address" required>
+          <input type="text" class="form-control" id="address" placeholder="Θέμα" name="address" requigreen>
         </div>
         <div class="form-group">
           <label for="company">Company:</label>
-          <input type="text" class="form-control" id="company" placeholder="Θέμα" name="company" required>
+          <input type="text" class="form-control" id="company" placeholder="Θέμα" name="company" requigreen>
         </div>
         <div class="form-group">
           <label for="phone">Phone:</label>
-          <input type="text" class="form-control" id="phone" placeholder="Θέμα" name="phone" required>
+          <input type="text" class="form-control" id="phone" placeholder="Θέμα" name="phone" requigreen>
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" requigreen>
         </div>
       </form>
       <button class="btn btn-success" id="button" />Υποβολή</button>
@@ -51,3 +53,150 @@
 
 
 </script>
+<%
+=end %>
+<div class="container con_home box_shadow">
+  <div class="row row_home">
+    <div class="col-md-3" id="leftCol">
+    </div>
+    <div class="col-md-6">
+
+        <h2 class="caption">Create new customer</h2>
+
+            <form  class="cf" id="contact-form" accept-charset="UTF-8">
+      
+                    <input name="name" class="form-control" type="text" placeholder="Name" id="name" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="surname" class="form-control" type="text" placeholder="Surname" id="surname" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="address" class="form-control" type="text" placeholder="Address" id="address" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="company" class="form-control" type="text" placeholder="Company" id="company" maxlength="40" />
+                    <br>
+                    <input name="phone" class="form-control" type="text" placeholder="Phone" id="phone" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="mobile" class="form-control" type="text" placeholder="Mobile" id="mobile" maxlength="40" />
+                    <br>
+                    <input name="email" class="form-control" type="text" placeholder="E-mail address" id="email"  maxlength="50" style="border-color:green;"/>
+                    <br>
+                    <input id="mrs" name="age" type="radio" value="Mrs" />
+                    <label for="mrs">Mrs</label>
+                    <input id="mr" name="age" type="radio" value="Mr" />
+                    <label for="mr">Mr</label>
+                    <br><br>
+                    <input name="city" class="form-control" type="text" placeholder="City" id="city" maxlength="40"  style="border-color:green;"/>
+                    <br>
+                    <input name="postal" class="form-control" type="text" placeholder="Postal-code" id="postal" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="country_code" class="form-control" type="text" placeholder="Country code" id="country_code" maxlength="40" style="border-color:green;"/>
+                    <br>
+                    <input name="fax" class="form-control" type="text" placeholder="Fax" id="fax" maxlength="40" />
+                    <br>
+                    <input name="vat" class="form-control" type="text" placeholder="VAT" id="vat" maxlength="40" />
+                    <br>
+                    <hr>
+                    <br>
+                    <input  class="btn btn-primary" value="Send" id="sendMessage"/>
+                
+            </form>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+        $( "#sendMessage" ).click(function() {
+            var name = $('#name').val();
+            var surname = $('#surname').val();
+            var address = $('#address').val();
+            var company = $('#company').val();
+            var arithmos = $('#phone').val();
+            var mobile = $('#mobile').val();
+            var email = $('#email').val();
+            var city = $('#city').val();
+            var postal = $('#postal').val();
+            var country = $('#country_code').val();
+            var fax = $('#fax').val();
+            var vat = $('#vat').val();
+            var selected = $("input[type='radio'][name='age']:checked");
+            if (selected.length > 0) {
+                var man = selected.val();
+            }
+            
+            //var noumero = $('#senderPhone').val();
+            //var mera = $('#senderDate').val();
+        //if (email.trim()  && onoma.trim() && arithmos.trim() && company.trim() && surname.trim() ) {
+          if (name !== "" && surname !== "" && address !== "" && arithmos !== "" && email !== "" && city !== "" && postal !== "" && country !== "") {
+             // is empty or whitespace
+            $.ajax({
+              type:'get',
+              url:'/etic/add_user',
+              dataType: "json",
+              data: { name: name, surname: surname, address: address, company: company, arithmos: arithmos, mobile: mobile, email: email, city: city, postal: postal, country: country, fax: fax, vat: vat, man: man },
+              success: function(data) { 
+                },
+              error: function(data) { 
+                }
+            });//end ajax
+            alert("Το μύνημα εστάλει!!!");
+            window.location.href = "<%= etic_select_customer_path %>";
+            //setTimeout(function() {
+              //location.reload();
+            //}, 3000);
+        
+        }
+        else{
+          if(name === ""){
+            $("html, body").animate({ scrollTop: $('#name').offset().top }, 300);
+            $( "input[id='name']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='name']" ).css({"border-color":"green"});
+          }
+          if(surname === ""){
+            $("html, body").animate({ scrollTop: $('#surname').offset().top }, 300);
+            $( "input[id='surname']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='surname']" ).css({"border-color":"green"});
+          }
+          if(address === ""){
+            $("html, body").animate({ scrollTop: $('#address').offset().top }, 300);
+            $( "input[id='address']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='address']" ).css({"border-color":"green"});
+          }
+          if(arithmos === ""){
+            //$("html, body").animate({ scrollTop: $('#phone').offset().top }, 300);
+            $( "input[id='phone']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='arithmos']" ).css({"border-color":"green"});
+          }
+          if(email === ""){
+            //$("html, body").animate({ scrollTop: $('#email').offset().top }, 300);
+            $( "input[id='email']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='email']" ).css({"border-color":"green"});
+          }
+          if(city === ""){
+            //$("html, body").animate({ scrollTop: $('#city').offset().top }, 300);
+            $( "input[id='city']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='city']" ).css({"border-color":"green"});
+          }
+          if(postal === ""){
+            //$("html, body").animate({ scrollTop: $('#postal').offset().top }, 300);
+            $( "input[id='postal']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='postal']" ).css({"border-color":"green"});
+          }
+          if(country === ""){
+            //$("html, body").animate({ scrollTop: $('#country_code').offset().top }, 300);
+            $( "input[id='country_code']" ).css({"border-color":"red"});
+          }else{
+            $( "input[id='country']" ).css({"border-color":"green"});
+          }
+        }
+
+            });
+
+
+    </script>

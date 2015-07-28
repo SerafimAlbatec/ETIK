@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default" role="navigation" style="margin: auto;">
+  <div class="container header_con">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!--
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle /*collapsed*/" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Etik</a>
+    </div>
+  -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="/*collapse navbar-collapse*/" id="/*bs-example-navbar-collapse-1*/">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <% if current_user.admin === nil %>
+            <% if false %><!---->
+            <li><a href="<%= etic_home_path %>?pse_user=0">Application <span class="sr-only">(current)</span></a>
+            </li>
+            <% end %><!---->
+          <% end %>
+        <% end %>
+        <li><a href="<%= etic_contact_path %>">Contact</a></li>
+        <li class="lang">
+            <div class="btn-group btn-group-xs" role="group" aria-label="...">
+              <%= link_to "English",etic_language_path(:lang => "en") %>
+              <%= link_to "Greek",etic_language_path(:lang => "gr") %>
+              <%= link_to "German",etic_language_path(:lang => "de") %>
+            </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <% if user_signed_in? %>
+         <% if current_user.admin == 1 %> <!--Mesa giati vgazei error-->
+           <li><a href="<%= etic_etic_card_path %>">Admin panel</a>
+           <li><a href="<%= etic_history_admin_path %>">History</a></li>
+         <% else %>
+           <li><a href="<%= etic_user_diax_path %>">Offers</a></li>
+           <li><a href="<%= etic_history_path %>">History</a></li>
+         <% end %>
+         <% end %>
+         <% if user_signed_in? %>
+          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> 
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+        <% end %>
+      </ul>
+      </br></br>
+        <p class="katw_mpara">Hello <strong><%= current_user.name %> </strong> </p>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
